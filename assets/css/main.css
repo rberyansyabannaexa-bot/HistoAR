@@ -1,0 +1,205 @@
+/* =========================================================
+   HISTOAR — Design Tokens
+   Konsep: stratigrafi tanah — lapisan warna gelap ke terang,
+   aksen oksida besi (rust ochre) dan lumut (moss).
+   ========================================================= */
+
+:root {
+  /* Warna */
+  --basalt: #1c1814;
+  --basalt-soft: #262019;
+  --bone: #ede6d6;
+  --bone-dim: #c9c0ac;
+  --rust: #b5502e;
+  --rust-bright: #d46a44;
+  --moss: #6b7a5e;
+  --clay: #8c6b4f;
+
+  /* Tipografi */
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "IBM Plex Mono", "Courier New", monospace;
+
+  /* Skala */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+  --space-5: 4rem;
+  --space-6: 6rem;
+
+  --radius: 3px;
+  --border: 1px solid rgba(237, 230, 214, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--basalt);
+  color: var(--bone);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 var(--space-2);
+  color: var(--bone);
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 700; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); }
+h3 { font-size: 1.3rem; }
+
+p { margin: 0 0 var(--space-2); color: var(--bone-dim); }
+
+a { color: inherit; }
+
+.mono {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rust-bright);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+/* Focus visibility */
+:focus-visible {
+  outline: 2px solid var(--rust-bright);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--rust);
+  color: var(--bone);
+  padding: 0.6em 1em;
+  z-index: 100;
+}
+.skip-link:focus { left: var(--space-2); top: var(--space-2); }
+
+img { max-width: 100%; display: block; }
+
+/* Buttons */
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.8em 1.6em;
+  border-radius: var(--radius);
+  border: var(--border);
+  background: transparent;
+  color: var(--bone);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+}
+.btn:hover:not(:disabled) { border-color: var(--rust-bright); transform: translateY(-1px); }
+.btn:disabled,
+a.btn[disabled] { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
+
+.btn-primary {
+  background: var(--rust);
+  border-color: var(--rust);
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--rust-bright);
+  border-color: var(--rust-bright);
+}
+
+/* =========================================================
+   SIGNATURE — Core Sample (sampel bor stratigrafi)
+   Menampilkan progres materi sebagai lapisan tanah bertumpuk.
+   ========================================================= */
+.core-sample {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 28px;
+}
+.core-sample__layer {
+  width: 8px;
+  height: 100%;
+  border-radius: 2px;
+  background: rgba(237, 230, 214, 0.12);
+  transition: background 0.3s ease;
+  position: relative;
+}
+.core-sample__layer.is-done {
+  background: var(--layer-color, var(--rust));
+}
+.core-sample__layer.is-current {
+  background: var(--layer-color, var(--rust));
+  animation: pulse-layer 1.8s ease-in-out infinite;
+}
+@keyframes pulse-layer {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+/* Site header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(28, 24, 20, 0.92);
+  backdrop-filter: blur(6px);
+  border-bottom: var(--border);
+}
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) 0;
+}
+.site-header__brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  text-decoration: none;
+}
+.site-header__brand span.mark { color: var(--rust-bright); }
+
+.site-footer {
+  border-top: var(--border);
+  padding: var(--space-4) 0;
+  margin-top: var(--space-6);
+}
+.site-footer p { font-size: 0.85rem; margin: 0; }
