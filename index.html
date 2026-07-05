@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Histoar — Gali Kembali Masa Prasejarah Nusantara</title>
+<meta name="description" content="Belajar prasejarah Indonesia lewat materi, quiz interaktif, dan HistoAI." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/components.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Lompat ke konten</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="index.html" class="site-header__brand"><span class="mark">◆</span> Histoar</a>
+    <div class="core-sample" id="coreSample" aria-label="Progres belajar"></div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div class="hero__strata" aria-hidden="true"></div>
+    <div class="container">
+      <span class="eyebrow">◆ Ekskavasi Digital</span>
+      <h1>Gali kembali jejak manusia purba Nusantara.</h1>
+      <p class="hero__lede">Histoar mengajak kamu membaca lapisan demi lapisan sejarah Indonesia — dari fosil Pithecanthropus di Trinil sampai bangunan megalitik — lewat materi ringkas, quiz, dan diskusi bareng HistoAI.</p>
+      <div class="hero__cta">
+        <a href="materi.html" class="btn btn-primary">Mulai Belajar</a>
+        <a href="#tentang" class="btn">Tentang Histoar</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="container" id="tentang" style="padding: var(--space-5) 0;">
+    <span class="eyebrow">Prolog</span>
+    <h2>Tanah menyimpan cerita yang tak sempat dituliskan</h2>
+    <p style="max-width: 60ch;">Sebelum ada aksara, manusia purba meninggalkan jejaknya lewat fosil, alat batu, dan bangunan batu besar yang terkubur berlapis-lapis di dalam tanah. Setiap lapisan adalah babak waktu. Histoar menyusun enam babak itu jadi materi yang bisa kamu jelajahi satu per satu — makin dalam kamu gali, makin banyak yang kamu pahami.</p>
+    <a href="materi.html" class="btn" style="margin-top: var(--space-2);">Lihat Semua Materi →</a>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="mono">HISTOAR — Media Belajar Prasejarah Nusantara</p>
+  </div>
+</footer>
+
+<script src="assets/js/progress.js"></script>
+<script src="assets/js/router.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => window.HistoarRouter.renderCoreSample(null));
+</script>
+</body>
+</html>
