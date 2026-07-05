@@ -3,150 +3,22 @@
     {
       "id": "m1",
       "urutan": 1,
-      "kode": "STR-01",
-      "judul": "Pengantar Prasejarah & Stratigrafi",
-      "ringkasan": "Cara arkeolog membaca lapisan tanah untuk menyusun garis waktu kehidupan manusia purba.",
-      "layerColor": "#B5502E",
+      "kode": "01 / GEOLOGI",
+      "layerColor": "#8a7256",
+      "judul": "Periodisasi Geologi: Bumi Sebelum Manusia",
+      "ringkasan": "Bumi jauh lebih tua dari manusia. Empat zaman geologi menjelaskan bagaimana bumi bersiap menjadi rumah bagi kehidupan.",
       "konten": [
         {
-          "tipe": "teks",
-          "judul": "Apa itu Prasejarah?",
-          "isi": "Prasejarah adalah masa sebelum manusia mengenal tulisan. Karena tidak ada catatan tertulis, satu-satunya cara mempelajarinya adalah lewat benda dan fosil yang tertimbun di dalam tanah."
+          "judul": "Empat Zaman Geologi",
+          "isi": "Berdasarkan geologi, sejarah bumi dibagi ke dalam empat zaman. Arkaekum/Arkeozoikum (± 2.500 juta tahun lalu): zaman tertua, bumi masih sangat panas dan belum stabil, belum ada kehidupan. Paleozoikum/Zaman Primer (± 340 juta tahun lalu): tanda kehidupan mulai muncul — mikroorganisme, ikan, amfibi, reptil awal, invertebrata. Mesozoikum/Zaman Sekunder (± 140 juta tahun lalu): zaman reptil raksasa (dinosaurus), burung dan mamalia mulai muncul. Neozoikum/Zaman Hidup Baru (60 juta tahun lalu hingga kini): terbagi Tersier (mamalia menyusui berkembang pesat) dan Kuartier, zaman terpenting karena tanda kehidupan manusia mulai muncul sekitar 3 juta tahun lalu."
         },
         {
-          "tipe": "teks",
-          "judul": "Prinsip Stratigrafi",
-          "isi": "Stratigrafi adalah ilmu tentang lapisan tanah (strata). Prinsip dasarnya disebut Hukum Superposisi: lapisan yang berada di bawah terbentuk lebih dulu, sehingga usianya lebih tua dari lapisan di atasnya."
+          "judul": "Bumi yang Tidak Tenang",
+          "isi": "Ketika manusia mulai muncul di penghujung Neozoikum, permukaan bumi tidak tenang: es meluas menutupi sebagian muka bumi (zaman glasial), iklim berubah drastis, permukaan air laut naik-turun, daratan baru muncul dan tenggelam, gunung berapi meletus di berbagai wilayah, sungai dan danau timbul lalu hilang. Perubahan ini memaksa manusia beradaptasi — yang tidak mampu, punah; yang bertahan mewariskan cara hidupnya ke generasi berikutnya."
         },
         {
-          "tipe": "teks",
-          "judul": "Kenapa Ini Penting?",
-          "isi": "Dengan membaca urutan lapisan tempat fosil ditemukan, arkeolog bisa memperkirakan umur relatif suatu benda tanpa perlu menebak-nebak."
-        }
-      ]
-    },
-    {
-      "id": "m2",
-      "urutan": 2,
-      "kode": "HOM-02",
-      "judul": "Manusia Purba Indonesia",
-      "ringkasan": "Jenis-jenis manusia purba yang fosilnya ditemukan di Nusantara, dari Meganthropus hingga Homo erectus.",
-      "layerColor": "#8C6B4F",
-      "konten": [
-        {
-          "tipe": "teks",
-          "judul": "Meganthropus Palaeojavanicus",
-          "isi": "Ditemukan oleh G.H.R von Koenigswald di Sangiran. Diperkirakan sebagai manusia purba berbadan besar dengan rahang yang kuat, hidup sekitar 1-2 juta tahun lalu."
-        },
-        {
-          "tipe": "teks",
-          "judul": "Pithecanthropus",
-          "isi": "Dikenal sebagai 'manusia kera berjalan tegak'. Fosil Pithecanthropus erectus ditemukan oleh Eugene Dubois di Trinil pada 1891, salah satu penemuan fosil manusia purba paling terkenal di dunia."
-        },
-        {
-          "tipe": "teks",
-          "judul": "Homo Erectus & Homo Soloensis",
-          "isi": "Homo erectus dianggap nenek moyang langsung yang lebih maju dibanding Pithecanthropus. Homo soloensis ditemukan di Ngandong, tepi Bengawan Solo, dengan volume otak yang lebih besar."
-        }
-      ]
-    },
-    {
-      "id": "m3",
-      "urutan": 3,
-      "kode": "BTU-03",
-      "judul": "Zaman Batu",
-      "ringkasan": "Perkembangan alat dari batu kasar (Paleolitikum) hingga batu halus (Neolitikum).",
-      "layerColor": "#6B7A5E",
-      "konten": [
-        {
-          "tipe": "teks",
-          "judul": "Paleolitikum (Zaman Batu Tua)",
-          "isi": "Alat masih dibuat dengan cara dipukul kasar, belum diasah. Contohnya kapak genggam dan alat serpih yang ditemukan di Pacitan dan Ngandong."
-        },
-        {
-          "tipe": "teks",
-          "judul": "Mesolitikum (Zaman Batu Tengah)",
-          "isi": "Manusia mulai hidup semi-menetap di gua (abris sous roche) dan tepi pantai, meninggalkan tumpukan sampah kulit kerang yang disebut kjokkenmoddinger."
-        },
-        {
-          "tipe": "teks",
-          "judul": "Neolitikum (Zaman Batu Muda)",
-          "isi": "Alat batu sudah diasah halus, seperti kapak persegi dan kapak lonjong. Masa ini juga ditandai dengan mulainya kehidupan bercocok tanam dan menetap."
-        }
-      ]
-    },
-    {
-      "id": "m4",
-      "urutan": 4,
-      "kode": "LOG-04",
-      "judul": "Zaman Logam",
-      "ringkasan": "Masa ketika manusia mulai mengolah logam menjadi perkakas dan benda upacara.",
-      "layerColor": "#B5502E",
-      "konten": [
-        {
-          "tipe": "teks",
-          "judul": "Zaman Perunggu",
-          "isi": "Manusia mulai mencampur tembaga dan timah menjadi perunggu. Benda peninggalannya antara lain nekara, kapak corong, dan bejana perunggu."
-        },
-        {
-          "tipe": "teks",
-          "judul": "Nekara Perunggu",
-          "isi": "Nekara adalah alat musik sekaligus benda upacara berbentuk seperti dandang terbalik, ditemukan di berbagai wilayah Nusantara seperti Sumatra dan Nusa Tenggara."
-        },
-        {
-          "tipe": "teks",
-          "judul": "Zaman Besi",
-          "isi": "Teknologi pengolahan besi berkembang setelah perunggu, menghasilkan alat yang lebih kuat seperti mata kapak, pisau, dan mata tombak."
-        }
-      ]
-    },
-    {
-      "id": "m5",
-      "urutan": 5,
-      "kode": "MEG-05",
-      "judul": "Kepercayaan Megalitik",
-      "ringkasan": "Sistem kepercayaan awal manusia purba beserta bangunan batu besar peninggalannya.",
-      "layerColor": "#8C6B4F",
-      "konten": [
-        {
-          "tipe": "teks",
-          "judul": "Animisme & Dinamisme",
-          "isi": "Animisme adalah kepercayaan bahwa benda-benda memiliki roh. Dinamisme adalah kepercayaan bahwa benda tertentu memiliki kekuatan gaib."
-        },
-        {
-          "tipe": "teks",
-          "judul": "Menhir & Dolmen",
-          "isi": "Menhir adalah tugu batu tunggal untuk memuja arwah leluhur. Dolmen adalah meja batu besar yang biasa digunakan sebagai altar atau tempat sesaji."
-        },
-        {
-          "tipe": "teks",
-          "judul": "Punden Berundak & Sarkofagus",
-          "isi": "Punden berundak adalah bangunan pemujaan bertingkat, cikal bakal konsep candi. Sarkofagus adalah peti mati dari batu utuh yang dipahat."
-        }
-      ]
-    },
-    {
-      "id": "m6",
-      "urutan": 6,
-      "kode": "SIT-06",
-      "judul": "Situs Prasejarah Nusantara",
-      "ringkasan": "Lokasi-lokasi penting di Indonesia tempat ditemukannya jejak kehidupan purba.",
-      "layerColor": "#6B7A5E",
-      "konten": [
-        {
-          "tipe": "teks",
-          "judul": "Sangiran, Jawa Tengah",
-          "isi": "Situs paling kaya fosil manusia purba di Asia, ditetapkan UNESCO sebagai Situs Warisan Dunia sejak 1996. Ditemukan lebih dari 100 fosil manusia purba di sini."
-        },
-        {
-          "tipe": "teks",
-          "judul": "Trinil, Jawa Timur",
-          "isi": "Tempat Eugene Dubois menemukan fosil Pithecanthropus erectus pada tahun 1891 di tepi Bengawan Solo."
-        },
-        {
-          "tipe": "teks",
-          "judul": "Gua Harimau & Situs Lainnya",
-          "isi": "Gua Harimau di Sumatra Selatan menyimpan rangka manusia prasejarah lengkap dengan alat-alat pemakamannya, memberi gambaran ritual penguburan pada masa itu."
+          "judul": "Akal sebagai Kelebihan Utama Manusia",
+          "isi": "Di antara semua makhluk hidup masa itu, manusia bukan yang paling kuat — tidak secepat kuda, tidak sekuat harimau, tidak setahan gajah. Yang membuat manusia bertahan justru akal. Dengan akalnya, manusia mengubah batu, tulang, dan kayu di sekitarnya menjadi alat yang terus berkembang mengikuti kebutuhan zaman. Manusia bahkan belajar dari bencana: letusan gunung berapi membuat tanah subur untuk lahan tanam, dan banjir yang membawa lumpur menyuburkan lahan pertanian."
         }
       ]
     }
