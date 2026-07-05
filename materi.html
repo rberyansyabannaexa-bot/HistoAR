@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pilih Materi — Histoar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/main.css" />
+<link rel="stylesheet" href="assets/css/components.css" />
+</head>
+<body>
+<a class="skip-link" href="#main">Lompat ke konten</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="index.html" class="site-header__brand"><span class="mark">◆</span> Histoar</a>
+    <div class="core-sample" id="coreSample" aria-label="Progres belajar"></div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="container">
+    <div style="padding-top: var(--space-4);">
+      <span class="eyebrow">Peta Lapisan</span>
+      <h1>Pilih Materi</h1>
+      <p style="max-width: 55ch;">Materi tersusun berurutan seperti lapisan tanah — selesaikan satu materi (quiz + diskusi HistoAI) untuk membuka materi berikutnya.</p>
+    </div>
+    <div class="materi-grid" id="materiGrid">
+      <p>Memuat materi…</p>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="mono">HISTOAR — Media Belajar Prasejarah Nusantara</p>
+  </div>
+</footer>
+
+<script src="assets/js/progress.js"></script>
+<script src="assets/js/router.js"></script>
+<script src="assets/js/materi-loader.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    window.HistoarRouter.renderCoreSample(null);
+    window.HistoarMateriLoader.renderMateriGrid();
+  });
+</script>
+</body>
+</html>
