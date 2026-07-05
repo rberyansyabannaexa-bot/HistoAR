@@ -2,17 +2,19 @@
   "_petunjuk": "Setiap materi punya 'targetMind' (hasil compile semua gambar target materi itu jadi 1 file .mind via https://hiukim.github.io/mind-ar-js-doc/tools/compile) dan daftar 'targets'. targetIndex harus urut sesuai urutan gambar saat di-compile. Ganti semua path model/audio di bawah dengan file asli kamu.",
 
   "m1": {
-    "targetMind": "assets/ar/targets/m1.mind",
+    "targetMind": "assets/ar/targets/periodisasi-geologi.mind",
     "targets": [
       {
-        "key": "stratigrafi",
-        "label": "Lapisan Stratigrafi Bumi",
+        "key": "periodisasi-geologi",
+        "label": "Periodisasi Geologi: Bumi Sebelum Manusia",
         "targetIndex": 0,
-        "model": "assets/models/m1-stratigrafi.glb",
+        "model": "assets/models/sekarang.glb",
+        "introAudio": "assets/audio/periodisasi-geologi/intro.mp3",
         "hotspots": [
-          { "id": "h1", "label": "Lapisan Tanah", "teks": "Lapisan tanah tersusun dari atas ke bawah — semakin dalam, semakin tua usianya. Prinsip inilah yang dipakai geolog dan arkeolog untuk menaksir umur benda yang terkubur di dalamnya.", "audio": "assets/audio/m1-h1.mp3" },
-          { "id": "h2", "label": "Fosil", "teks": "Fosil adalah sisa makhluk hidup purba yang membatu selama jutaan tahun. Posisinya di lapisan tanah tertentu membantu menentukan pada masa apa makhluk itu hidup.", "audio": "assets/audio/m1-h2.mp3" },
-          { "id": "h3", "label": "Sumber Praaksara", "teks": "Karena tidak ada tulisan, benda seperti batu, tulang, dan fosil inilah yang jadi satu-satunya sumber sejarah untuk menyusun cerita masa praaksara.", "audio": "assets/audio/m1-h3.mp3" }
+          { "id": "arkaekum", "label": "Arkaekum", "model": "assets/models/arkaekum.glb", "audio": "assets/audio/periodisasi-geologi/arkaezoikum.mp3", "teks": "± 2.500 juta tahun lalu. Zaman tertua. Bumi masih sangat panas dan kulit buminya belum stabil. Belum ada tanda kehidupan." },
+          { "id": "paleozoikum", "label": "Paleozoikum", "model": "assets/models/paleozoikum.glb", "audio": "assets/audio/periodisasi-geologi/paleozoikum.mp3", "teks": "± 340 juta tahun lalu (Zaman Primer / Hidup Tua). Tanda kehidupan mulai muncul: mikroorganisme, ikan, amfibi, reptil awal, dan hewan tanpa tulang belakang (invertebrata)." },
+          { "id": "mesozoikum", "label": "Mesozoikum", "model": "assets/models/mesozoikum.glb", "audio": "assets/audio/periodisasi-geologi/mesozoikum.mp3", "teks": "± 140 juta tahun lalu (Zaman Sekunder / Hidup Pertengahan). Zaman reptil raksasa, sering disebut zaman dinosaurus. Burung dan mamalia mulai muncul. Reptil besar seperti dinosaurus akhirnya punah karena seleksi alam, memberi ruang bagi burung dan mamalia untuk berkembang." },
+          { "id": "neozoikum", "label": "Neozoikum", "model": "assets/models/neozoikum.glb", "audio": "assets/audio/periodisasi-geologi/neozoikum.mp3", "teks": "60 juta tahun lalu hingga kini (Zaman Hidup Baru). Terbagi dua: Tersier (mamalia menyusui berkembang pesat) dan Kuartier (tanda-tanda kehidupan manusia muncul, sekitar 3 juta tahun lalu). Kuartier adalah zaman terpenting bagi kemunculan manusia." }
         ]
       }
     ]
