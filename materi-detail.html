@@ -3,48 +3,48 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Materi — Histoar</title>
+<title>Scan AR — Histoar</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="assets/css/main.css" />
 <link rel="stylesheet" href="assets/css/components.css" />
+
+<!-- MindAR + A-Frame: image tracking AR, gratis & open-source, tanpa API key -->
+<script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
 </head>
-<body>
-<a class="skip-link" href="#main">Lompat ke konten</a>
+<body class="ar-mode">
 
-<header class="site-header">
-  <div class="container site-header__inner">
-    <a href="index.html" class="site-header__brand"><span class="mark">◆</span> Histoar</a>
-    <div class="core-sample" id="coreSample" aria-label="Progres belajar"></div>
+<div id="arRoot">
+  <header class="ar-topbar">
+    <a href="materi.html" class="ar-back">← Kembali</a>
+    <h1 id="arHeading" class="ar-topbar__title">Memuat…</h1>
+  </header>
+
+  <div id="arSceneRoot" class="ar-scene-root">
+    <!-- <a-scene> MindAR di-generate di sini oleh ar-controller.js -->
   </div>
-</header>
 
-<main id="main">
-  <div class="container materi-detail__body">
-    <span class="eyebrow" id="materiEyebrow">···</span>
-    <h1 id="materiHeading">Memuat materi…</h1>
-    <div id="materiDetailBody">
-      <p>Memuat konten…</p>
+  <div class="ar-scan-hint" id="arScanHint">
+    <span class="mono">Arahkan kamera ke gambar target di buku/kartu</span>
+  </div>
+
+  <!-- Panel hotspot muncul setelah target AR terdeteksi -->
+  <div id="arPanel" class="ar-panel" hidden>
+    <div class="ar-panel__head">
+      <h2 id="arPanelTitle">—</h2>
+      <button type="button" id="arPanelClose" class="ar-panel__close" aria-label="Tutup panel">✕</button>
     </div>
-
-    <div class="materi-detail__nav">
-      <a href="materi.html" class="btn">← Daftar Materi</a>
-      <a href="#" id="btnKeQuiz" class="btn btn-primary">Kerjakan Quiz →</a>
-    </div>
+    <div id="arHotspotRow" class="ar-hotspot-row"></div>
+    <p id="arPanelDesc" class="ar-panel__desc">—</p>
+    <div id="arProgressDots" class="ar-progress-dots"></div>
+    <button type="button" id="btnKeQuiz" class="btn btn-primary ar-gate-btn" disabled>🔒 Memuat…</button>
+    <p id="arGateNote" class="gate-note"></p>
   </div>
-</main>
-
-<footer class="site-footer">
-  <div class="container">
-    <p class="mono">HISTOAR — Media Belajar Prasejarah Nusantara</p>
-  </div>
-</footer>
+</div>
 
 <script src="assets/js/progress.js"></script>
 <script src="assets/js/router.js"></script>
-<script src="assets/js/materi-loader.js"></script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => window.HistoarMateriLoader.renderMateriDetail());
-</script>
+<script src="assets/js/ar-controller.js"></script>
 </body>
 </html>
