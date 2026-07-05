@@ -1,0 +1,136 @@
+{
+  "_petunjuk": "Setiap materi punya 'targetMind' (hasil compile semua gambar target materi itu jadi 1 file .mind via https://hiukim.github.io/mind-ar-js-doc/tools/compile) dan daftar 'targets'. targetIndex harus urut sesuai urutan gambar saat di-compile. Ganti semua path model/audio di bawah dengan file asli kamu.",
+
+  "m1": {
+    "targetMind": "assets/ar/targets/m1.mind",
+    "targets": [
+      {
+        "key": "stratigrafi",
+        "label": "Lapisan Stratigrafi Bumi",
+        "targetIndex": 0,
+        "model": "assets/models/m1-stratigrafi.glb",
+        "hotspots": [
+          { "id": "h1", "label": "Lapisan Tanah", "teks": "Lapisan tanah tersusun dari atas ke bawah — semakin dalam, semakin tua usianya. Prinsip inilah yang dipakai geolog dan arkeolog untuk menaksir umur benda yang terkubur di dalamnya.", "audio": "assets/audio/m1-h1.mp3" },
+          { "id": "h2", "label": "Fosil", "teks": "Fosil adalah sisa makhluk hidup purba yang membatu selama jutaan tahun. Posisinya di lapisan tanah tertentu membantu menentukan pada masa apa makhluk itu hidup.", "audio": "assets/audio/m1-h2.mp3" },
+          { "id": "h3", "label": "Sumber Praaksara", "teks": "Karena tidak ada tulisan, benda seperti batu, tulang, dan fosil inilah yang jadi satu-satunya sumber sejarah untuk menyusun cerita masa praaksara.", "audio": "assets/audio/m1-h3.mp3" }
+        ]
+      }
+    ]
+  },
+
+  "m2": {
+    "targetMind": "assets/ar/targets/m2.mind",
+    "targets": [
+      {
+        "key": "zaman-geologi",
+        "label": "Skala Waktu Geologi",
+        "targetIndex": 0,
+        "model": "assets/models/m2-skala-waktu.glb",
+        "hotspots": [
+          { "id": "h1", "label": "Arkaekum", "teks": "± 2.500 juta tahun lalu. Zaman tertua, bumi masih sangat panas dan belum stabil. Belum ada kehidupan sama sekali.", "audio": "assets/audio/m2-h1.mp3" },
+          { "id": "h2", "label": "Paleozoikum", "teks": "± 340 juta tahun lalu. Mulai muncul mikroorganisme, ikan, amfibi, reptil awal, dan invertebrata.", "audio": "assets/audio/m2-h2.mp3" },
+          { "id": "h3", "label": "Mesozoikum", "teks": "± 140 juta tahun lalu. Zaman reptil raksasa alias dinosaurus. Burung dan mamalia mulai muncul.", "audio": "assets/audio/m2-h3.mp3" },
+          { "id": "h4", "label": "Neozoikum", "teks": "60 juta tahun lalu hingga kini. Mamalia berkembang pesat, dan sekitar 3 juta tahun lalu tanda-tanda kehidupan manusia mulai muncul.", "audio": "assets/audio/m2-h4.mp3" }
+        ]
+      }
+    ]
+  },
+
+  "m3": {
+    "targetMind": "assets/ar/targets/m3.mind",
+    "targets": [
+      {
+        "key": "empat-masa",
+        "label": "Empat Masa Kehidupan",
+        "targetIndex": 0,
+        "model": "assets/models/m3-empat-masa.glb",
+        "hotspots": [
+          { "id": "h1", "label": "Paleolitikum", "teks": "Masa berburu-meramu sederhana. Alat masih kasar: kapak perimbas dan kapak genggam. Hidup nomaden berkelompok kecil.", "audio": "assets/audio/m3-h1.mp3" },
+          { "id": "h2", "label": "Mesolitikum", "teks": "Mulai menetap di gua dan tepi pantai. Muncul kjokkenmoddinger (sampah kerang) dan seni lukis gua.", "audio": "assets/audio/m3-h2.mp3" },
+          { "id": "h3", "label": "Neolitikum", "teks": "Masa bercocok tanam. Alat batu sudah diasah halus: beliung persegi, kapak lonjong, gerabah.", "audio": "assets/audio/m3-h3.mp3" },
+          { "id": "h4", "label": "Megalitik & Kepercayaan", "teks": "Muncul menhir, dolmen, sarkofagus, serta kepercayaan animisme dan dinamisme terhadap roh dan benda bertuah.", "audio": "assets/audio/m3-h4.mp3" },
+          { "id": "h5", "label": "Perundagian", "teks": "Zaman logam. Muncul undagi (tukang ahli), nekara perunggu, dan pelayaran dengan perahu bercadik.", "audio": "assets/audio/m3-h5.mp3" }
+        ]
+      }
+    ]
+  },
+
+  "m4": {
+    "targetMind": "assets/ar/targets/m4.mind",
+    "targets": [
+      {
+        "key": "meganthropus",
+        "label": "Meganthropus Paleojavanicus",
+        "targetIndex": 0,
+        "model": "assets/models/meganthropus.glb",
+        "hotspots": [
+          { "id": "kepala", "label": "Kepala", "teks": "Tulang kening Meganthropus sangat menonjol dan tulang pipinya tebal. Volume otaknya belum bisa dipastikan karena hanya fragmen rahang dan gigi yang berhasil ditemukan.", "audio": "assets/audio/meganthropus-kepala.mp3" },
+          { "id": "rahang", "label": "Rahang", "teks": "Ciri paling khas Meganthropus: rahang sangat besar dan menonjol, tanpa dagu seperti manusia modern. Rahang kuat ini jadi alat utama mengunyah makanan keras seperti umbi dan tumbuhan berserat.", "audio": "assets/audio/meganthropus-rahang.mp3" },
+          { "id": "badan", "label": "Badan", "teks": "Tubuhnya tegap dan berotot dengan perkiraan tinggi sekitar 1,75 meter — meski angka ini masih spekulatif karena yang tersisa cuma fragmen rahang, bukan kerangka utuh.", "audio": "assets/audio/meganthropus-badan.mp3" },
+          { "id": "lengan", "label": "Lengan", "teks": "Postur Meganthropus diperkirakan agak membungkuk, dengan lengan yang kuat untuk mendukung aktivitas mengumpulkan makanan dari alam secara langsung.", "audio": "assets/audio/meganthropus-lengan.mp3" },
+          { "id": "kaki", "label": "Kaki", "teks": "Meganthropus hidup sepenuhnya bergantung pada alam sekitar Sangiran, mengumpulkan umbi-umbian dan buah liar. Belum ada bukti kuat soal seberapa jauh ia berjalan atau berburu aktif.", "audio": "assets/audio/meganthropus-kaki.mp3" }
+        ]
+      },
+      {
+        "key": "pithecanthropus",
+        "label": "Pithecanthropus Erectus",
+        "targetIndex": 1,
+        "model": "assets/models/pithecanthropus.glb",
+        "hotspots": [
+          { "id": "kepala", "label": "Kepala", "teks": "Tengkorak Pithecanthropus berat dengan dahi yang miring ke belakang. Volume otaknya sekitar 900 cc — berada di antara otak kera dan manusia modern.", "audio": "assets/audio/pithecanthropus-kepala.mp3" },
+          { "id": "rahang", "label": "Rahang", "teks": "Tulang alis di atas rongga matanya sangat menonjol, khas manusia purba pertengahan, berbeda dari rahang raksasa Meganthropus.", "audio": "assets/audio/pithecanthropus-rahang.mp3" },
+          { "id": "badan", "label": "Badan", "teks": "Tinggi badannya sekitar 1,65 sampai 1,80 meter. Ditemukan oleh Eugène Dubois tahun 1891 di Trinil, tepi Bengawan Solo — temuan yang mengguncang dunia sains karena dianggap 'missing link' antara kera dan manusia.", "audio": "assets/audio/pithecanthropus-badan.mp3" },
+          { "id": "lengan", "label": "Lengan", "teks": "Lengannya dipakai menggenggam alat batu seperti kapak perimbas dan kapak genggam — dua alat khas Kebudayaan Pacitan yang ia buat, digenggam langsung tanpa tangkai.", "audio": "assets/audio/pithecanthropus-lengan.mp3" },
+          { "id": "kaki", "label": "Kaki", "teks": "Nama 'erectus' berasal dari cara berjalannya yang sudah tegak (bipedal) — sebuah lompatan besar dibanding manusia purba sebelumnya, memungkinkannya berburu berkelompok di padang rumput terbuka.", "audio": "assets/audio/pithecanthropus-kaki.mp3" }
+        ]
+      },
+      {
+        "key": "homosapiens",
+        "label": "Homo Sapiens",
+        "targetIndex": 2,
+        "model": "assets/models/homosapiens.glb",
+        "hotspots": [
+          { "id": "kepala", "label": "Kepala", "teks": "Wajah Homo Sapiens sudah lebih rata dengan dahi tegak (tidak miring ke belakang) dan tulang alis tipis. Volume otaknya 1.300 sampai 1.450 cc — hampir dua kali lipat Pithecanthropus.", "audio": "assets/audio/homosapiens-kepala.mp3" },
+          { "id": "rahang", "label": "Rahang", "teks": "Berbeda dari dua pendahulunya, Homo Sapiens sudah memiliki dagu — salah satu ciri fisik yang membuatnya paling mirip manusia modern sekarang, termasuk kita.", "audio": "assets/audio/homosapiens-rahang.mp3" },
+          { "id": "badan", "label": "Badan", "teks": "Tinggi sekitar 1,73 meter dengan postur ramping. Fosil pentingnya ditemukan sebagai Homo wajakensis di Wajak, Tulungagung (1889), dan Homo soloensis di Ngandong.", "audio": "assets/audio/homosapiens-badan.mp3" },
+          { "id": "lengan", "label": "Lengan", "teks": "Tangan Homo Sapiens sudah mahir membuat gerabah, beliung persegi, dan bahkan melebur logam — jauh lebih presisi dibanding manusia purba sebelumnya.", "audio": "assets/audio/homosapiens-lengan.mp3" },
+          { "id": "kaki", "label": "Kaki", "teks": "Homo Sapiens adalah nenek moyang langsung manusia modern. Ia bercocok tanam, membangun irigasi, dan berlayar dengan perahu bercadik untuk berdagang antarpulau.", "audio": "assets/audio/homosapiens-kaki.mp3" }
+        ]
+      }
+    ]
+  },
+
+  "m5": {
+    "targetMind": "assets/ar/targets/m5.mind",
+    "targets": [
+      {
+        "key": "migrasi",
+        "label": "Peta Migrasi Nenek Moyang",
+        "targetIndex": 0,
+        "model": "assets/models/m5-migrasi.glb",
+        "hotspots": [
+          { "id": "h1", "label": "Out of Taiwan", "teks": "Leluhur bangsa Indonesia diduga berasal dari sekitar Taiwan, bermigrasi dalam lima tahap dari sekitar 5.000 SM hingga 1.500 SM.", "audio": "assets/audio/m5-h1.mp3" },
+          { "id": "h2", "label": "Paleo-Melanesoid", "teks": "Sebelum Austronesia datang, bangsa Paleo-Melanesoid sudah bermigrasi ke Papua-Australia sekitar 800.000 tahun lalu.", "audio": "assets/audio/m5-h2.mp3" },
+          { "id": "h3", "label": "Proto & Deutro Melayu", "teks": "Proto-Melayu (± 2.000 SM) membawa kebudayaan Neolitikum; Deutro-Melayu (± 500 SM) membawa kebudayaan Perundagian/Dongson.", "audio": "assets/audio/m5-h3.mp3" }
+        ]
+      }
+    ]
+  },
+
+  "m6": {
+    "targetMind": "assets/ar/targets/m6.mind",
+    "targets": [
+      {
+        "key": "batu-tajam",
+        "label": "Batu Tajam Peninggalan Praaksara",
+        "targetIndex": 0,
+        "model": "assets/models/m6-batu-tajam.glb",
+        "hotspots": [
+          { "id": "h1", "label": "Bentuk", "teks": "Bekas pukulan yang sengaja pada permukaan batu menandakan ini buatan manusia, bukan pola alami.", "audio": "assets/audio/m6-h1.mp3" },
+          { "id": "h2", "label": "Usia", "teks": "Umur batu ini bisa ditaksir dari lapisan tanah tempatnya terkubur — semakin dalam, semakin tua.", "audio": "assets/audio/m6-h2.mp3" },
+          { "id": "h3", "label": "Pembuat", "teks": "Kalau batu ini masih kasar dan digenggam tanpa tangkai, kemungkinan buatan Pithecanthropus dari Kebudayaan Pacitan.", "audio": "assets/audio/m6-h3.mp3" }
+        ]
+      }
+    ]
+  }
+}
