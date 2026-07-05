@@ -30,7 +30,7 @@ async function renderMateriGrid() {
       card.style.setProperty("--layer-color", m.layerColor);
       if (unlocked) card.href = `materi-detail.html?id=${m.id}`;
 
-      const statusText = done ? "Selesai" : unlocked ? "Terbuka" : "Terkunci";
+      const statusText = done ? "✓ Selesai" : unlocked ? "📷 Scan AR" : "🔒 Terkunci";
       const statusClass = unlocked ? "" : "locked";
 
       card.innerHTML = `
