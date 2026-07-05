@@ -1,0 +1,124 @@
+{
+  "quiz": {
+    "m1": [
+      {
+        "id": "m1q1",
+        "pertanyaan": "Menurut Hukum Superposisi, lapisan tanah yang paling tua berada di...",
+        "opsi": ["Bagian paling atas", "Bagian paling bawah", "Bagian tengah", "Tidak bisa ditentukan"],
+        "jawaban": 1
+      },
+      {
+        "id": "m1q2",
+        "pertanyaan": "Mengapa masa sebelum tulisan disebut prasejarah?",
+        "opsi": ["Karena belum ada manusia", "Karena tidak ada catatan tertulis", "Karena belum ada fosil", "Karena belum ditemukan arkeolog"],
+        "jawaban": 1
+      },
+      {
+        "id": "m1q3",
+        "pertanyaan": "Ilmu yang mempelajari lapisan tanah disebut...",
+        "opsi": ["Paleontologi", "Geologi", "Stratigrafi", "Antropologi"],
+        "jawaban": 2
+      }
+    ],
+    "m2": [
+      {
+        "id": "m2q1",
+        "pertanyaan": "Fosil Pithecanthropus erectus ditemukan oleh...",
+        "opsi": ["G.H.R von Koenigswald", "Eugene Dubois", "Charles Darwin", "Raden Saleh"],
+        "jawaban": 1
+      },
+      {
+        "id": "m2q2",
+        "pertanyaan": "Meganthropus palaeojavanicus ditemukan di daerah...",
+        "opsi": ["Trinil", "Ngandong", "Sangiran", "Gua Harimau"],
+        "jawaban": 2
+      },
+      {
+        "id": "m2q3",
+        "pertanyaan": "Homo soloensis ditemukan di tepi sungai...",
+        "opsi": ["Bengawan Solo", "Ciliwung", "Brantas", "Musi"],
+        "jawaban": 0
+      }
+    ],
+    "m3": [
+      {
+        "id": "m3q1",
+        "pertanyaan": "Tumpukan sampah kulit kerang peninggalan zaman Mesolitikum disebut...",
+        "opsi": ["Menhir", "Kjokkenmoddinger", "Nekara", "Dolmen"],
+        "jawaban": 1
+      },
+      {
+        "id": "m3q2",
+        "pertanyaan": "Ciri utama alat pada zaman Paleolitikum adalah...",
+        "opsi": ["Diasah sangat halus", "Terbuat dari logam", "Dipukul kasar, belum diasah", "Dibentuk dengan mesin"],
+        "jawaban": 2
+      },
+      {
+        "id": "m3q3",
+        "pertanyaan": "Kapak persegi dan kapak lonjong adalah ciri khas zaman...",
+        "opsi": ["Paleolitikum", "Mesolitikum", "Neolitikum", "Logam"],
+        "jawaban": 2
+      }
+    ],
+    "m4": [
+      {
+        "id": "m4q1",
+        "pertanyaan": "Nekara perunggu berfungsi sebagai...",
+        "opsi": ["Alat berburu", "Alat musik dan benda upacara", "Senjata perang", "Alat pertanian"],
+        "jawaban": 1
+      },
+      {
+        "id": "m4q2",
+        "pertanyaan": "Perunggu terbuat dari campuran...",
+        "opsi": ["Besi dan emas", "Tembaga dan timah", "Perak dan besi", "Emas dan perak"],
+        "jawaban": 1
+      },
+      {
+        "id": "m4q3",
+        "pertanyaan": "Teknologi logam yang berkembang setelah perunggu adalah...",
+        "opsi": ["Emas", "Perak", "Besi", "Kuningan"],
+        "jawaban": 2
+      }
+    ],
+    "m5": [
+      {
+        "id": "m5q1",
+        "pertanyaan": "Kepercayaan bahwa benda-benda memiliki roh disebut...",
+        "opsi": ["Dinamisme", "Animisme", "Totemisme", "Politeisme"],
+        "jawaban": 1
+      },
+      {
+        "id": "m5q2",
+        "pertanyaan": "Tugu batu tunggal untuk memuja arwah leluhur disebut...",
+        "opsi": ["Dolmen", "Sarkofagus", "Menhir", "Punden berundak"],
+        "jawaban": 2
+      },
+      {
+        "id": "m5q3",
+        "pertanyaan": "Bangunan pemujaan bertingkat yang menjadi cikal bakal candi disebut...",
+        "opsi": ["Menhir", "Punden berundak", "Dolmen", "Waruga"],
+        "jawaban": 1
+      }
+    ],
+    "m6": [
+      {
+        "id": "m6q1",
+        "pertanyaan": "Sangiran ditetapkan UNESCO sebagai Situs Warisan Dunia pada tahun...",
+        "opsi": ["1891", "1936", "1996", "2001"],
+        "jawaban": 2
+      },
+      {
+        "id": "m6q2",
+        "pertanyaan": "Fosil Pithecanthropus erectus ditemukan di situs...",
+        "opsi": ["Sangiran", "Trinil", "Ngandong", "Gua Harimau"],
+        "jawaban": 1
+      },
+      {
+        "id": "m6q3",
+        "pertanyaan": "Situs yang menyimpan rangka manusia prasejarah lengkap dengan alat pemakamannya adalah...",
+        "opsi": ["Trinil", "Sangiran", "Gua Harimau", "Ngandong"],
+        "jawaban": 2
+      }
+    ]
+  }
+}
