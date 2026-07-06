@@ -229,7 +229,29 @@ body.ar-mode {
   inset: 0;
   width: 100%;
   height: 100%;
+  touch-action: none; /* biar drag jari buat muter model gak ke-tangkep sbg scroll/zoom browser */
 }
+
+.ar-view-controls {
+  position: absolute;
+  top: calc(var(--space-4) + 48px);
+  right: var(--space-3);
+  z-index: 22;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.ar-view-controls button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(28, 24, 20, 0.8);
+  border: var(--border);
+  color: var(--bone);
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+.ar-view-controls button:hover { border-color: var(--rust-bright); }
 
 .ar-scan-hint {
   position: absolute;
