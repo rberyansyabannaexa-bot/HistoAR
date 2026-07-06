@@ -24,3 +24,26 @@
     }
   ]
 }
+
+{
+  "id": "m2-1",
+  "urutan": 2,
+  "kode": "2.1 / PALEOLITIKUM",
+  "layerColor": "#7a5c3e",
+  "judul": "Berburu-Meramu Tingkat Sederhana",
+  "ringkasan": "Masa paling awal kehidupan manusia praaksara. Alam belum stabil, manusia bertahan dengan berburu, meramu, dan berpindah-pindah tempat.",
+  "konten": [
+    {
+      "judul": "Kehidupan di Masa Paleolitikum",
+      "isi": "Paleolitikum merupakan masa paling awal kehidupan manusia praaksara. Kondisi alam masih belum stabil sehingga manusia harus beradaptasi dengan lingkungan yang keras. Mata pencaharian dilakukan dengan berburu hewan dan mengumpulkan umbi-umbian, buah-buahan, serta tumbuhan liar yang dapat dimakan."
+    },
+    {
+      "judul": "Peralatan dan Cara Hidup",
+      "isi": "Peralatan terbuat dari batu, tulang, dan kayu dengan bentuk yang masih kasar, seperti kapak genggam, kapak penetak, alat serpih, serta alat dari tulang. Cara hidup bersifat nomaden mengikuti sumber makanan, tinggal di dekat sungai, danau, atau gua, dalam kelompok kecil."
+    },
+    {
+      "judul": "Pembagian Kerja, Seni, dan Kebudayaan Indonesia",
+      "isi": "Pembagian kerja mulai terlihat: laki-laki berburu, perempuan mengumpulkan makanan dan mengurus anak. Seni berkembang lewat lukisan sederhana bertema hewan buruan. Di Indonesia, kebudayaan Paleolitikum terbagi menjadi Kebudayaan Pacitan (kapak penetak) dan Kebudayaan Ngandong (alat tulang dan serpih)."
+    }
+  ]
+}
