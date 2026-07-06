@@ -58,7 +58,7 @@ async function initQuizController() {
         input: document.getElementById("chatInput"),
         sendBtn: document.getElementById("chatSendBtn"),
       },
-      { materiJudul: materi.judul, score, total },
+      { materiId, materiJudul: materi.judul, score, total },
       () => {
         // Gating: begitu siswa kirim pesan pertama, buka tombol lanjut materi.
         window.HistoarProgress.markMateriComplete(materiId, score);
