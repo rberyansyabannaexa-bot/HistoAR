@@ -112,9 +112,96 @@ function updateGateButton() {
   }
 }
 
+const ZOOM_STEP = 0.2;
+const MIN_ZOOM = 0.3;
+const MAX_ZOOM = 3;
+const ROTATE_SPEED = 0.4; // derajat per pixel drag
+
+let baseScaleVec = { x: 0.3, y: 0.3, z: 0.3 };
+let zoomFactor = 1;
+let rotY = 0;
+let rotX = 0;
+
+function parseScale(str) {
+  const parts = (str || DEFAULT_SCALE).trim().split(/\s+/).map(Number);
+  return { x: parts[0] || 0.3, y: parts[1] || 0.3, z: parts[2] || 0.3 };
+}
+
 /**
- * Ganti model 3D yang lagi ditampilin di atas target tertentu, sekalian scale-nya
- * kalau hotspot itu punya scale sendiri (tiap file .glb bisa beda satuan ukuran).
+ * Terapkan zoom + rotasi manual siswa ke wrapper entity (bukan ke model
+ * langsung, dan bukan ke entity anchor AR) - jadi gerakan ini murni visual,
+ * gak ganggu tracking posisi AR-nya sama sekali.
+ */
+function applyWrapperTransform(targetKey) {
+  const sceneRoot = document.getElementById("arSceneRoot");
+  const wrapper = sceneRoot.querySelector(`[data-wrapper="${targetKey}"]`);
+  if (!wrapper) return;
+  const s = baseScaleVec;
+  wrapper.setAttribute("scale", `${s.x * zoomFactor} ${s.y * zoomFactor} ${s.z * zoomFactor}`);
+  wrapper.setAttribute("rotation", `${rotX} ${rotY} 0`);
+}
+
+/** Dipanggil tiap kali model diganti (hotspot baru) - reset zoom & rotasi ke default model itu. */
+function setBaseScale(targetKey, scaleStr) {
+  baseScaleVec = parseScale(scaleStr);
+  zoomFactor = 1;
+  rotY = 0;
+  rotX = 0;
+  applyWrapperTransform(targetKey);
+}
+
+function zoomIn() {
+  if (!activeTarget) return;
+  zoomFactor = Math.min(MAX_ZOOM, +(zoomFactor + ZOOM_STEP).toFixed(2));
+  applyWrapperTransform(activeTarget.key);
+}
+
+function zoomOut() {
+  if (!activeTarget) return;
+  zoomFactor = Math.max(MIN_ZOOM, +(zoomFactor - ZOOM_STEP).toFixed(2));
+  applyWrapperTransform(activeTarget.key);
+}
+
+function resetView() {
+  if (!activeTarget) return;
+  zoomFactor = 1;
+  rotY = 0;
+  rotX = 0;
+  applyWrapperTransform(activeTarget.key);
+}
+
+/** Drag (mouse/jari) di area kamera buat muter model 360°. */
+function initDragRotate() {
+  const root = document.getElementById("arSceneRoot");
+  let dragging = false;
+  let lastX = 0;
+  let lastY = 0;
+
+  root.addEventListener("pointerdown", (e) => {
+    if (!activeTarget) return;
+    dragging = true;
+    lastX = e.clientX;
+    lastY = e.clientY;
+  });
+
+  window.addEventListener("pointermove", (e) => {
+    if (!dragging || !activeTarget) return;
+    const dx = e.clientX - lastX;
+    const dy = e.clientY - lastY;
+    lastX = e.clientX;
+    lastY = e.clientY;
+    rotY += dx * ROTATE_SPEED;
+    rotX += dy * ROTATE_SPEED;
+    applyWrapperTransform(activeTarget.key);
+  });
+
+  window.addEventListener("pointerup", () => { dragging = false; });
+  window.addEventListener("pointercancel", () => { dragging = false; });
+}
+
+/**
+ * Ganti model 3D (src) yang lagi ditampilin di atas target tertentu, sekalian
+ * reset zoom/rotasi manualnya ke base scale bawaan model itu.
  */
 function updateModel(targetKey, modelSrc, scale) {
   if (!modelSrc) return;
@@ -122,7 +209,7 @@ function updateModel(targetKey, modelSrc, scale) {
   const modelEl = sceneRoot.querySelector(`[data-target-key="${targetKey}"] a-gltf-model`);
   if (!modelEl) return;
   modelEl.setAttribute("src", modelSrc);
-  modelEl.setAttribute("scale", scale || DEFAULT_SCALE);
+  setBaseScale(targetKey, scale);
 }
 
 /**
@@ -236,6 +323,14 @@ async function initAR() {
 
     buildScene(arConfig);
     updateGateButton();
+    initDragRotate();
+
+    const zoomInBtn = document.getElementById("btnZoomIn");
+    const zoomOutBtn = document.getElementById("btnZoomOut");
+    const resetBtn = document.getElementById("btnResetView");
+    if (zoomInBtn) zoomInBtn.addEventListener("click", zoomIn);
+    if (zoomOutBtn) zoomOutBtn.addEventListener("click", zoomOut);
+    if (resetBtn) resetBtn.addEventListener("click", resetView);
 
     const nextBtn = document.getElementById("btnKeQuiz");
     if (nextBtn) {
@@ -276,7 +371,9 @@ function buildScene(config) {
     .map(
       (t) => `
       <a-entity mindar-image-target="targetIndex: ${t.targetIndex}" data-target-key="${t.key}">
-        <a-gltf-model src="${t.model}" position="0 0 0" scale="${t.scale || DEFAULT_SCALE}" rotation="0 0 0"></a-gltf-model>
+        <a-entity class="ar-model-wrapper" data-wrapper="${t.key}" scale="${t.scale || DEFAULT_SCALE}" rotation="0 0 0">
+          <a-gltf-model src="${t.model}" position="0 0 0"></a-gltf-model>
+        </a-entity>
       </a-entity>`
     )
     .join("");
@@ -301,6 +398,8 @@ function buildScene(config) {
       document.body.classList.add("ar-locked-in"); // sembunyiin UI "scanning" bawaan MindAR
       const hint = document.getElementById("arScanHint");
       if (hint) hint.hidden = true;
+      const viewControls = document.getElementById("arViewControls");
+      if (viewControls) viewControls.hidden = false;
       if (isFirstTime) openPanel(t, true);
     });
 
