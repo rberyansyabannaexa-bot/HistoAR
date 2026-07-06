@@ -28,6 +28,9 @@
   { "id": "m2-1q4", "pertanyaan": "Pembagian kerja pada masa Paleolitikum umumnya berbentuk...", "opsi": ["Laki-laki berburu, perempuan mengumpulkan makanan dan mengurus anak", "Perempuan berburu, laki-laki menjaga api", "Tidak ada pembagian kerja sama sekali", "Anak-anak yang bertugas berburu"], "jawaban": 0 },
   { "id": "m2-1q5", "pertanyaan": "Kebudayaan Pacitan pada masa Paleolitikum di Indonesia dikenal dengan alat berupa...", "opsi": ["Kapak penetak (chopper) dari batu", "Nekara perunggu", "Kapak lonjong yang diasah halus", "Gerabah tanah liat"], "jawaban": 0 },
   { "id": "m2-1q6", "pertanyaan": "Kebudayaan Ngandong pada masa Paleolitikum di Indonesia menghasilkan alat dari...", "opsi": ["Besi", "Emas dan perak", "Tulang dan alat serpih (flakes)", "Perunggu"], "jawaban": 2 }
+],
+
+    "m3-1": [
+  { "id": "m3-1q1", "pertanyaan": "Apa itu tk?", "opsi": ["Tukang kurupuk", "tkj", "tkr", "tko"], "jawaban": 0 }
 ]
-  }
 }
