@@ -2,8 +2,7 @@ from http.server import BaseHTTPRequestHandler
 import json
 import os
 import sys
-import urllib.request
-import urllib.error
+import requests
 
 ATOMESUS_API_KEY = os.environ.get("ATOMESUS_API_KEY")
 ATOMESUS_URL = "https://api.atomesus.com/v1/chat/completions"
@@ -45,22 +44,20 @@ def _ringkas_konten(materi):
 
 
 def _panggil_atomesus(prompt_final):
-    payload = json.dumps({
-        "model": "cipher",
-        "messages": [{"role": "user", "content": prompt_final}],
-    }).encode()
-
-    req = urllib.request.Request(
+    resp = requests.post(
         ATOMESUS_URL,
-        data=payload,
         headers={
             "Authorization": f"Bearer {ATOMESUS_API_KEY}",
             "Content-Type": "application/json",
         },
-        method="POST",
+        json={
+            "model": "cipher",
+            "messages": [{"role": "user", "content": prompt_final}],
+        },
+        timeout=(5, 20),
     )
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return json.loads(resp.read())
+    resp.raise_for_status()
+    return resp.json()
 
 
 class handler(BaseHTTPRequestHandler):
@@ -87,10 +84,12 @@ class handler(BaseHTTPRequestHandler):
 
             try:
                 data = _panggil_atomesus(prompt_final)
-            except urllib.error.HTTPError as e:
-                error_body = e.read().decode(errors="replace")
-                print(f"[ATOMESUS HTTPError] status={e.code} body={error_body}", file=sys.stderr)
-                return self._json(502, {"error": f"AI error {e.code}"})
+            except requests.exceptions.HTTPError as e:
+                print(f"[ATOMESUS HTTP ERROR] status={e.response.status_code} body={e.response.text}", file=sys.stderr)
+                return self._json(502, {"error": f"AI error {e.response.status_code}"})
+            except requests.exceptions.Timeout:
+                print("[ATOMESUS TIMEOUT]", file=sys.stderr)
+                return self._json(504, {"error": "AI terlalu lama merespon"})
             except Exception as e:
                 print(f"[ATOMESUS CONN ERROR] {repr(e)}", file=sys.stderr)
                 return self._json(502, {"error": "Gagal konek ke AI"})
