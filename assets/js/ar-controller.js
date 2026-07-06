@@ -372,7 +372,7 @@ function buildScene(config) {
       (t) => `
       <a-entity mindar-image-target="targetIndex: ${t.targetIndex}" data-target-key="${t.key}">
         <a-entity class="ar-model-wrapper" data-wrapper="${t.key}" scale="${t.scale || DEFAULT_SCALE}" rotation="0 0 0">
-          <a-gltf-model src="${t.model}" position="0 0 0"></a-gltf-model>
+          <a-gltf-model src="${t.model}" position="0 0 0" autoplay-animations></a-gltf-model>
         </a-entity>
       </a-entity>`
     )
