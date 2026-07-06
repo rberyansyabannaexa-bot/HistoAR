@@ -45,36 +45,31 @@ class Chatbot {
   this.el.log.scrollTop = this.el.log.scrollHeight;
 
   try {
-    const res = await fetch("/api/chat", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        materi_id: this.context.materiId,
-        pertanyaan: text,
-      }),
-    });
+  const res = await fetch("/api/chat", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      materi_id: this.context.materiId,
+      pertanyaan: text,
+    }),
+  });
 
-    if (!res.ok || !res.body) {
-      bubble.textContent = "Maaf, terjadi kesalahan. Coba lagi ya.";
-      return;
-    }
+  const json = await res.json();
 
-    const reader = res.body.getReader();
-    const decoder = new TextDecoder();
-    let fullText = "";
-    bubble.textContent = "";
+  console.log(json);
 
-    while (true) {
-      const { done, value } = await reader.read();
-      if (done) break;
-      fullText += decoder.decode(value, { stream: true });
-      bubble.textContent = fullText;
-      this.el.log.scrollTop = this.el.log.scrollHeight;
-    }
-  } catch (err) {
-    console.error(err);
-    bubble.textContent = "Maaf, HistoAI sedang tidak bisa dihubungi.";
+  if (!res.ok) {
+    bubble.textContent = json.error || "Terjadi kesalahan";
+    return;
   }
+
+  bubble.textContent = json.reply;
+} catch (err) {
+  console.error(err);
+  bubble.textContent = err.message;
+}
 }
 }
 window.Chatbot = Chatbot;
