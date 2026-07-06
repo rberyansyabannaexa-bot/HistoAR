@@ -340,3 +340,29 @@ body.ar-mode {
   opacity: 1;
 }
 .ar-gate-btn { width: 100%; justify-content: center; }
+
+.ar-hotspot-pill.is-visited-pill:not(.is-active) {
+  border-color: var(--moss);
+}
+
+.ar-reopen-btn {
+  position: absolute;
+  bottom: var(--space-4);
+  right: var(--space-3);
+  z-index: 25;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--rust);
+  border: none;
+  color: var(--bone);
+  font-size: 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+}
+
+/* Sekali target udah ke-lock (pernah kedeteksi), sembunyiin UI "scanning"
+   bawaan MindAR (kotak sudut putih) biar gak bikin bingung siswa. */
+body.ar-locked-in [class*="mindar-ui"] {
+  display: none !important;
+}
