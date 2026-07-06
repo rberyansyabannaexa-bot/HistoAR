@@ -3,28 +3,56 @@
  * Jalanin mode AR di materi-detail.html:
  * - cek lock/unlock materi
  * - init kamera + MindAR image tracking
- * - saat target ketemu: tampilin model default + audio intro (opsional)
+ * - saat target ketemu PERTAMA KALI: kunci posisi (gak perlu terus2an ngarah ke marker),
+ *   tampilin model default + audio intro (opsional)
  * - tiap hotspot diklik: model 3D ganti, audio ganti, teks ganti
  * - selama audio narator masih muter, hotspot lain di-lock (biar suara gak numpuk)
+ *   dengan safety timeout biar gak ke-lock permanen kalau audio gagal load
+ * - ada tombol reopen (floating) buat manggil ulang panel abis di-close, tanpa rescan
  * - gating: tombol "Lanjut ke Quiz" ke-disable sampe semua hotspot semua target dieksplor
  */
+
+const DEFAULT_SCALE = "0.3 0.3 0.3"; // fallback kalau target/hotspot gak nentuin scale sendiri
+const AUDIO_LOCK_TIMEOUT_MS = 12000; // pengaman: paling lama hotspot ke-lock 12 detik, apapun yang terjadi ke audio
 
 const visited = new Set(); // isi: "targetKey:hotspotId"
 let currentAudio = null;
 let audioBusy = false;
+let audioTimeoutHandle = null;
 let arConfig = null;
 let materiMeta = null;
+let activeTarget = null; // target yang lagi ke-lock/ditampilin
 
 /**
- * Puter audio narator. Selama audio ini muter, semua tombol hotspot di-lock
- * (disabled, abu-abu) biar gak ada suara yang numpuk kalau siswa tap cepat-cepat.
- * onEnded dipanggil begitu audio kelar (atau langsung kalau src kosong).
+ * Puter audio intro. INI GAK NGE-LOCK hotspot sama sekali - soalnya ini autoplay
+ * yang sering di-block/didelay diam-diam sama browser HP, jadi gak bisa
+ * diandalkan buat nentuin kapan siswa boleh mulai mijit hotspot.
+ */
+function playIntroAudio(src) {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+  if (!src) return;
+  currentAudio = new Audio(src);
+  currentAudio.play().catch(() => {
+    /* browser block autoplay - gapapa, siswa tetep bebas mijit hotspot */
+  });
+}
+
+/**
+ * Puter audio hotspot (dipicu tap manual siswa, bukan autoplay). Selama audio
+ * ini muter, semua tombol hotspot LAIN di-lock (disabled, abu-abu) biar gak ada
+ * suara yang numpuk kalau siswa tap cepat-cepat gonta-ganti hotspot.
+ * Ada safety timeout: kalau audio gagal load / event ended gak kepanggil,
+ * hotspot tetep otomatis ke-unlock abis beberapa detik, gak permanen ke-lock.
  */
 function playNarrationAudio(src, onEnded) {
   if (currentAudio) {
     currentAudio.pause();
     currentAudio.currentTime = 0;
   }
+  if (audioTimeoutHandle) clearTimeout(audioTimeoutHandle);
 
   if (!src) {
     unlockHotspots();
@@ -35,16 +63,20 @@ function playNarrationAudio(src, onEnded) {
   lockHotspots();
   currentAudio = new Audio(src);
 
+  let finished = false;
   const finish = () => {
+    if (finished) return;
+    finished = true;
+    if (audioTimeoutHandle) clearTimeout(audioTimeoutHandle);
     unlockHotspots();
     if (onEnded) onEnded();
   };
 
   currentAudio.addEventListener("ended", finish, { once: true });
-  currentAudio.play().catch(() => {
-    // browser mungkin nge-block autoplay sebelum ada interaksi user pertama - jangan sampe ke-lock permanen
-    finish();
-  });
+  currentAudio.addEventListener("error", finish, { once: true }); // audio 404 / gagal load -> jangan lock permanen
+  audioTimeoutHandle = setTimeout(finish, AUDIO_LOCK_TIMEOUT_MS); // jaring pengaman terakhir
+
+  currentAudio.play().catch(finish); // browser block autoplay sebelum ada interaksi user -> jangan lock permanen
 }
 
 function lockHotspots() {
@@ -81,24 +113,33 @@ function updateGateButton() {
 }
 
 /**
- * Ganti model 3D yang lagi ditampilin di atas target tertentu.
- * A-Frame otomatis reload model begitu atribut src-nya di-update.
+ * Ganti model 3D yang lagi ditampilin di atas target tertentu, sekalian scale-nya
+ * kalau hotspot itu punya scale sendiri (tiap file .glb bisa beda satuan ukuran).
  */
-function updateModel(targetKey, modelSrc) {
+function updateModel(targetKey, modelSrc, scale) {
   if (!modelSrc) return;
   const sceneRoot = document.getElementById("arSceneRoot");
   const modelEl = sceneRoot.querySelector(`[data-target-key="${targetKey}"] a-gltf-model`);
-  if (modelEl) modelEl.setAttribute("src", modelSrc);
+  if (!modelEl) return;
+  modelEl.setAttribute("src", modelSrc);
+  modelEl.setAttribute("scale", scale || DEFAULT_SCALE);
 }
 
-function renderHotspotPanel(target) {
+/**
+ * Tampilin panel hotspot. isFirstOpen=true cuma dipanggil sekali (pas target
+ * pertama kali kedeteksi) supaya intro audio gak keputer ulang tiap dibuka lagi
+ * lewat tombol reopen.
+ */
+function openPanel(target, isFirstOpen) {
   const panel = document.getElementById("arPanel");
   const titleEl = document.getElementById("arPanelTitle");
   const hotspotRow = document.getElementById("arHotspotRow");
   const desc = document.getElementById("arPanelDesc");
   const dots = document.getElementById("arProgressDots");
+  const reopenBtn = document.getElementById("arReopenBtn");
 
   panel.hidden = false;
+  if (reopenBtn) reopenBtn.hidden = true;
   titleEl.textContent = target.label;
 
   hotspotRow.innerHTML = "";
@@ -106,6 +147,7 @@ function renderHotspotPanel(target) {
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "ar-hotspot-pill";
+    if (visited.has(`${target.key}:${h.id}`)) btn.classList.add("is-visited-pill");
     btn.textContent = `${idx + 1}. ${h.label}`;
     btn.dataset.hotspotId = h.id;
     btn.addEventListener("click", () => selectHotspot(target, h, btn));
@@ -113,14 +155,16 @@ function renderHotspotPanel(target) {
   });
 
   dots.innerHTML = target.hotspots
-    .map((h) => `<span class="ar-dot" data-hotspot-id="${h.id}"></span>`)
+    .map((h) => `<span class="ar-dot${visited.has(`${target.key}:${h.id}`) ? " is-visited" : ""}" data-hotspot-id="${h.id}"></span>`)
     .join("");
 
-  // Tampilkan model default (mis. "sekarang.glb") dan puter narasi intro (kalau ada),
-  // TANPA menghitungnya sebagai hotspot yang sudah dikunjungi.
-  updateModel(target.key, target.model);
-  desc.textContent = "Pilih salah satu bagian di atas untuk mendengar & membaca penjelasannya.";
-  playNarrationAudio(target.introAudio, null);
+  if (isFirstOpen) {
+    updateModel(target.key, target.model, target.scale);
+    desc.textContent = "Pilih salah satu bagian di atas untuk mendengar & membaca penjelasannya.";
+    playIntroAudio(target.introAudio);
+  } else {
+    desc.textContent = "Pilih salah satu bagian di atas untuk mendengar & membaca penjelasannya.";
+  }
 }
 
 function selectHotspot(target, hotspot, btnEl) {
@@ -131,9 +175,12 @@ function selectHotspot(target, hotspot, btnEl) {
   const dots = document.getElementById("arProgressDots");
 
   hotspotRow.querySelectorAll(".ar-hotspot-pill").forEach((el) => el.classList.remove("is-active"));
-  if (btnEl) btnEl.classList.add("is-active");
+  if (btnEl) {
+    btnEl.classList.add("is-active");
+    btnEl.classList.add("is-visited-pill");
+  }
 
-  updateModel(target.key, hotspot.model || target.model);
+  updateModel(target.key, hotspot.model || target.model, hotspot.scale || target.scale);
   desc.textContent = hotspot.teks;
   playNarrationAudio(hotspot.audio, null);
 
@@ -148,9 +195,11 @@ function selectHotspot(target, hotspot, btnEl) {
 
 function closePanel() {
   const panel = document.getElementById("arPanel");
+  const reopenBtn = document.getElementById("arReopenBtn");
   panel.hidden = true;
   if (currentAudio) currentAudio.pause();
   unlockHotspots();
+  if (activeTarget && reopenBtn) reopenBtn.hidden = false; // baru boleh reopen kalau udah pernah ketemu target
 }
 
 async function initAR() {
@@ -201,6 +250,13 @@ async function initAR() {
 
     const closeBtn = document.getElementById("arPanelClose");
     if (closeBtn) closeBtn.addEventListener("click", closePanel);
+
+    const reopenBtn = document.getElementById("arReopenBtn");
+    if (reopenBtn) {
+      reopenBtn.addEventListener("click", () => {
+        if (activeTarget) openPanel(activeTarget, false);
+      });
+    }
   } catch (err) {
     console.error(err);
     container.innerHTML = `<div class="ar-blocked"><p>Gagal memuat mode AR. Coba muat ulang halaman.</p></div>`;
@@ -210,7 +266,8 @@ async function initAR() {
 /**
  * Bangun <a-scene> MindAR secara dinamis berdasarkan ar.json.
  * Setiap target di ar.json jadi satu <a-entity mindar-image-target>.
- * Model 3D awal dipasang, nanti di-swap dinamis oleh updateModel().
+ * Sekali target ketemu, kita "kunci" biar objek gak ilang cuma gara-gara
+ * marker sedikit keluar frame kamera - jadi cukup 1x scan aja.
  */
 function buildScene(config) {
   const sceneRoot = document.getElementById("arSceneRoot");
@@ -219,7 +276,7 @@ function buildScene(config) {
     .map(
       (t) => `
       <a-entity mindar-image-target="targetIndex: ${t.targetIndex}" data-target-key="${t.key}">
-        <a-gltf-model src="${t.model}" position="0 0 0" scale="0.05 0.05 0.05" rotation="0 0 0"></a-gltf-model>
+        <a-gltf-model src="${t.model}" position="0 0 0" scale="${t.scale || DEFAULT_SCALE}" rotation="0 0 0"></a-gltf-model>
       </a-entity>`
     )
     .join("");
@@ -233,11 +290,29 @@ function buildScene(config) {
     </a-scene>
   `;
 
-  // dengerin event targetFound dari tiap entity target
   config.targets.forEach((t) => {
     const el = sceneRoot.querySelector(`[data-target-key="${t.key}"]`);
     if (!el) return;
-    el.addEventListener("targetFound", () => renderHotspotPanel(t));
+
+    el.addEventListener("targetFound", () => {
+      const isFirstTime = !t._locked;
+      t._locked = true;
+      activeTarget = t;
+      document.body.classList.add("ar-locked-in"); // sembunyiin UI "scanning" bawaan MindAR
+      const hint = document.getElementById("arScanHint");
+      if (hint) hint.hidden = true;
+      if (isFirstTime) openPanel(t, true);
+    });
+
+    // Sekali udah pernah "locked", paksa tetep keliatan walau marker keluar
+    // frame kamera sebentar - biar siswa gak perlu rescan berkali-kali.
+    el.addEventListener("targetLost", () => {
+      if (t._locked && el.object3D) {
+        requestAnimationFrame(() => {
+          el.object3D.visible = true;
+        });
+      }
+    });
   });
 }
 
