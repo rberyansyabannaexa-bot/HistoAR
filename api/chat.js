@@ -27,8 +27,6 @@ function cariMateri(materiId) {
 function ringkasKonten(materi) {
   return materi.ringkasan || "";
 }
-  return bagian.join("\n\n");
-}
 
 export default async function handler(request) {
   if (request.method !== "POST") {
