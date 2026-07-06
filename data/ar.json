@@ -9,12 +9,13 @@
         "label": "Periodisasi Geologi: Bumi Sebelum Manusia",
         "targetIndex": 0,
         "model": "assets/models/sekarang.glb",
+        "scale": "0.3 0.3 0.3",
         "introAudio": "assets/audio/periodisasi-geologi/intro.mp3",
         "hotspots": [
-          { "id": "arkaekum", "label": "Arkaekum", "model": "assets/models/arkaekum.glb", "audio": "assets/audio/periodisasi-geologi/arkaezoikum.mp3", "teks": "± 2.500 juta tahun lalu. Zaman tertua. Bumi masih sangat panas dan kulit buminya belum stabil. Belum ada tanda kehidupan." },
-          { "id": "paleozoikum", "label": "Paleozoikum", "model": "assets/models/paleozoikum.glb", "audio": "assets/audio/periodisasi-geologi/paleozoikum.mp3", "teks": "± 340 juta tahun lalu (Zaman Primer / Hidup Tua). Tanda kehidupan mulai muncul: mikroorganisme, ikan, amfibi, reptil awal, dan hewan tanpa tulang belakang (invertebrata)." },
-          { "id": "mesozoikum", "label": "Mesozoikum", "model": "assets/models/mesozoikum.glb", "audio": "assets/audio/periodisasi-geologi/mesozoikum.mp3", "teks": "± 140 juta tahun lalu (Zaman Sekunder / Hidup Pertengahan). Zaman reptil raksasa, sering disebut zaman dinosaurus. Burung dan mamalia mulai muncul. Reptil besar seperti dinosaurus akhirnya punah karena seleksi alam, memberi ruang bagi burung dan mamalia untuk berkembang." },
-          { "id": "neozoikum", "label": "Neozoikum", "model": "assets/models/neozoikum.glb", "audio": "assets/audio/periodisasi-geologi/neozoikum.mp3", "teks": "60 juta tahun lalu hingga kini (Zaman Hidup Baru). Terbagi dua: Tersier (mamalia menyusui berkembang pesat) dan Kuartier (tanda-tanda kehidupan manusia muncul, sekitar 3 juta tahun lalu). Kuartier adalah zaman terpenting bagi kemunculan manusia." }
+          { "id": "arkaekum", "label": "Arkaekum", "model": "assets/models/arkaekum.glb", "scale": "0.3 0.3 0.3", "audio": "assets/audio/periodisasi-geologi/arkaezoikum.mp3", "teks": "± 2.500 juta tahun lalu. Zaman tertua. Bumi masih sangat panas dan kulit buminya belum stabil. Belum ada tanda kehidupan." },
+          { "id": "paleozoikum", "label": "Paleozoikum", "model": "assets/models/paleozoikum.glb", "scale": "0.3 0.3 0.3", "audio": "assets/audio/periodisasi-geologi/paleozoikum.mp3", "teks": "± 340 juta tahun lalu (Zaman Primer / Hidup Tua). Tanda kehidupan mulai muncul: mikroorganisme, ikan, amfibi, reptil awal, dan hewan tanpa tulang belakang (invertebrata)." },
+          { "id": "mesozoikum", "label": "Mesozoikum", "model": "assets/models/mesozoikum.glb", "scale": "0.3 0.3 0.3", "audio": "assets/audio/periodisasi-geologi/mesozoikum.mp3", "teks": "± 140 juta tahun lalu (Zaman Sekunder / Hidup Pertengahan). Zaman reptil raksasa, sering disebut zaman dinosaurus. Burung dan mamalia mulai muncul. Reptil besar seperti dinosaurus akhirnya punah karena seleksi alam, memberi ruang bagi burung dan mamalia untuk berkembang." },
+          { "id": "neozoikum", "label": "Neozoikum", "model": "assets/models/neozoikum.glb", "scale": "0.3 0.3 0.3", "audio": "assets/audio/periodisasi-geologi/neozoikum.mp3", "teks": "60 juta tahun lalu hingga kini (Zaman Hidup Baru). Terbagi dua: Tersier (mamalia menyusui berkembang pesat) dan Kuartier (tanda-tanda kehidupan manusia muncul, sekitar 3 juta tahun lalu). Kuartier adalah zaman terpenting bagi kemunculan manusia." }
         ]
       }
     ]
