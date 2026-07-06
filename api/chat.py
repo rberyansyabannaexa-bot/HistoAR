@@ -1,6 +1,7 @@
 from http.server import BaseHTTPRequestHandler
 import json
 import os
+import sys
 import urllib.request
 import urllib.error
 
@@ -86,8 +87,13 @@ class handler(BaseHTTPRequestHandler):
 
             try:
                 data = _panggil_atomesus(prompt_final)
-            except urllib.error.HTTPError:
-                return self._json(502, {"error": "AI sedang tidak tersedia, coba lagi"})
+            except urllib.error.HTTPError as e:
+                error_body = e.read().decode(errors="replace")
+                print(f"[ATOMESUS HTTPError] status={e.code} body={error_body}", file=sys.stderr)
+                return self._json(502, {"error": f"AI error {e.code}"})
+            except Exception as e:
+                print(f"[ATOMESUS CONN ERROR] {repr(e)}", file=sys.stderr)
+                return self._json(502, {"error": "Gagal konek ke AI"})
 
             jawaban = data["choices"][0]["message"]["content"]
 
@@ -96,7 +102,8 @@ class handler(BaseHTTPRequestHandler):
 
             self._json(200, {"jawaban": jawaban})
 
-        except Exception:
+        except Exception as e:
+            print(f"[SERVER ERROR] {repr(e)}", file=sys.stderr)
             self._json(500, {"error": "Terjadi kesalahan server"})
 
     def _json(self, status, body):
