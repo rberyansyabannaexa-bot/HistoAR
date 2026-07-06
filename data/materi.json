@@ -44,17 +44,19 @@
         }
       ]
     },
-  {
-  "id": "m3-1",
-  "urutan": 6,
-  "kode": "3.2 / PITHECANTHROPUS",
-  "layerColor": "#7a6a52",
-  "judul": "Pithecanthropus Erectus",
-  "ringkasan": "Manusia purba yang ditemukan Eugène Dubois tahun 1891 di Trinil - salah satu 'missing link' paling terkenal dalam sejarah evolusi manusia.",
-  "konten": [
     {
-      "judul": "Penemuan yang Menggegerkan Dunia",
-      "isi": "Sekitar 1 juta tahun lalu, ketika Meganthropus mulai menghilang, muncul jenis manusia purba yang lebih maju. Namanya Pithecanthropus erectus, artinya “manusia kera yang berjalan tegak”. Ia ditemukan pertama kali oleh Eugène Dubois, seorang dokter Belanda, tahun 1891 di Trinil, tepi Bengawan Solo, Ngawi, Jawa Timur. Temuan Dubois menggegerkan dunia sains akhir abad ke-19 karena Pithecanthropus dianggap salah satu “missing link” antara kera dan manusia (Simanjuntak, 2016, hlm. 71–75)."
+      "id": "m3-1",
+      "urutan": 6,
+      "kode": "3.2 / PITHECANTHROPUS",
+      "layerColor": "#7a6a52",
+      "judul": "Pithecanthropus Erectus",
+      "ringkasan": "Manusia purba yang ditemukan Eugène Dubois tahun 1891 di Trinil - salah satu 'missing link' paling terkenal dalam sejarah evolusi manusia.",
+      "konten": [
+        {
+          "judul": "Penemuan yang Menggegerkan Dunia",
+          "isi": "Sekitar 1 juta tahun lalu, ketika Meganthropus mulai menghilang, muncul jenis manusia purba yang lebih maju. Namanya Pithecanthropus erectus, artinya “manusia kera yang berjalan tegak”. Ia ditemukan pertama kali oleh Eugène Dubois, seorang dokter Belanda, tahun 1891 di Trinil, tepi Bengawan Solo, Ngawi, Jawa Timur. Temuan Dubois menggegerkan dunia sains akhir abad ke-19 karena Pithecanthropus dianggap salah satu “missing link” antara kera dan manusia (Simanjuntak, 2016, hlm. 71–75)."
+        }
+      ]
     }
   ]
 }
