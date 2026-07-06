@@ -4,7 +4,7 @@ import os
 import urllib.request
 import urllib.error
 
-ATOMESUS_API_KEY = os.environ.get("atms_sk_778f73c308ea9ed29b5925209c75af84b44f599f7bfba26e1d1fb5df602183f8")
+ATOMESUS_API_KEY = os.environ.get("ATOMESUS_API_KEY")
 ATOMESUS_URL = "https://api.atomesus.com/v1/chat/completions"
 MATERI_PATH = os.path.join(os.path.dirname(__file__), "..", "data", "materi.json")
 
