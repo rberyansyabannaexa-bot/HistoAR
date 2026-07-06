@@ -28,16 +28,16 @@
       "key": "paleolitikum",
       "label": "Masa Berburu dan Meramu Sederhana (Paleolitikum)",
       "targetIndex": 0,
-      "model": "assets/models/m2-1-paleolitikum.glb",
+      "model": "assets/models/empat-masa-kehidupan-manusia-praaksara/berburu_meramu.glb",
       "scale": "0.3 0.3 0.3",
-      "introAudio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/intro.mp3",
+      "introAudio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/intro.mp3",
       "hotspots": [
-        { "id": "mata-pencaharian", "label": "Cara Mendapatkan Makanan", "teks": "Mata pencaharian dilakukan dengan berburu hewan dan mengumpulkan umbi-umbian, buah-buahan, serta tumbuhan liar yang dapat dimakan.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/cara-mendapatkan-makanan.mp3" },
-        { "id": "alat", "label": "Alat yang Dipakai", "teks": "Peralatan terbuat dari batu, tulang, dan kayu dengan bentuk yang masih kasar, seperti kapak genggam, kapak penetak, alat serpih, serta alat dari tulang. Mereka juga menggunakan jebakan dan teknik menggiring hewan ke jurang saat berburu.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/alat-yang-dipakai.mp3" },
-        { "id": "cara-hidup", "label": "Cara Hidup", "teks": "Cara hidup bersifat nomaden mengikuti sumber makanan. Mereka tinggal di dekat sungai, danau, atau gua, serta hidup dalam kelompok kecil untuk memudahkan berburu dan bertahan hidup.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/cara-hidup.mp3" },
-        { "id": "pembagian-kerja", "label": "Pembagian Kerja", "teks": "Pembagian kerja mulai terlihat: laki-laki berburu, sedangkan perempuan mengumpulkan makanan, mengurus anak, dan menjaga api setelah manusia mengenalnya.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/pembagian-kerja.mp3" },
-        { "id": "seni-komunikasi", "label": "Seni dan Komunikasi", "teks": "Seni dan komunikasi sudah berkembang dalam bentuk lukisan sederhana bertema hewan buruan serta komunikasi menggunakan kata-kata pendek dan gerak tubuh.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/seni-dan-komunikasi.mp3" },
-        { "id": "kebudayaan-indonesia", "label": "Kebudayaan Paleolitikum di Indonesia", "teks": "Di Indonesia, kebudayaan Paleolitikum terbagi menjadi Kebudayaan Pacitan yang dikenal dengan kapak penetak (chopper) dari batu, dan Kebudayaan Ngandong yang menghasilkan alat dari tulang dan alat serpih (flakes).", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/kebudayaan-paleolitikum-di-indonesia.mp3" }
+        { "id": "mata-pencaharian", "label": "Cara Mendapatkan Makanan", "teks": "Mata pencaharian dilakukan dengan berburu hewan dan mengumpulkan umbi-umbian, buah-buahan, serta tumbuhan liar yang dapat dimakan.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/cara-mendapatkan-makanan.mp3" },
+        { "id": "alat", "label": "Alat yang Dipakai", "teks": "Peralatan terbuat dari batu, tulang, dan kayu dengan bentuk yang masih kasar, seperti kapak genggam, kapak penetak, alat serpih, serta alat dari tulang. Mereka juga menggunakan jebakan dan teknik menggiring hewan ke jurang saat berburu.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/alat-yang-dipakai.mp3" },
+        { "id": "cara-hidup", "label": "Cara Hidup", "teks": "Cara hidup bersifat nomaden mengikuti sumber makanan. Mereka tinggal di dekat sungai, danau, atau gua, serta hidup dalam kelompok kecil untuk memudahkan berburu dan bertahan hidup.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/cara-hidup.mp3" },
+        { "id": "pembagian-kerja", "label": "Pembagian Kerja", "teks": "Pembagian kerja mulai terlihat: laki-laki berburu, sedangkan perempuan mengumpulkan makanan, mengurus anak, dan menjaga api setelah manusia mengenalnya.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/pembagian-kerja.mp3" },
+        { "id": "seni-komunikasi", "label": "Seni dan Komunikasi", "teks": "Seni dan komunikasi sudah berkembang dalam bentuk lukisan sederhana bertema hewan buruan serta komunikasi menggunakan kata-kata pendek dan gerak tubuh.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/seni-dan-komunikasi.mp3" },
+        { "id": "kebudayaan-indonesia", "label": "Kebudayaan Paleolitikum di Indonesia", "teks": "Di Indonesia, kebudayaan Paleolitikum terbagi menjadi Kebudayaan Pacitan yang dikenal dengan kapak penetak (chopper) dari batu, dan Kebudayaan Ngandong yang menghasilkan alat dari tulang dan alat serpih (flakes).", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/kebudayaan-paleolitikum-di-indonesia.mp3" }
      ]
     }
   ]
