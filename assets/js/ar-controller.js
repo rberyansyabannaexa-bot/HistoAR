@@ -12,6 +12,31 @@
  * - gating: tombol "Lanjut ke Quiz" ke-disable sampe semua hotspot semua target dieksplor
  */
 
+/**
+ * Component custom buat muterin animasi GLB otomatis begitu model kelar di-load.
+ * WAJIB didaftarin SEBELUM <a-scene> di-render (makanya ditaro di paling atas file,
+ * sebelum buildScene()/initAR() dipanggil), soalnya A-Frame diem aja (gak error)
+ * kalau nemu attribute custom yang componentnya belum terdaftar.
+ */
+AFRAME.registerComponent("autoplay-animations", {
+  init: function () {
+    this.mixer = null;
+    this.el.addEventListener("model-loaded", (e) => {
+      const model = e.detail.model;
+      const animations = model.animations;
+      if (!animations || !animations.length) return;
+
+      this.mixer = new THREE.AnimationMixer(model);
+      animations.forEach((clip) => {
+        this.mixer.clipAction(clip).play();
+      });
+    });
+  },
+  tick: function (t, dt) {
+    if (this.mixer) this.mixer.update(dt / 1000);
+  },
+});
+
 const DEFAULT_SCALE = "0.3 0.3 0.3"; // fallback kalau target/hotspot gak nentuin scale sendiri
 const AUDIO_LOCK_TIMEOUT_MS = 12000; // pengaman: paling lama hotspot ke-lock 12 detik, apapun yang terjadi ke audio
 
