@@ -20,17 +20,22 @@
         "jawaban": 2
       }
     ],
-  
-  "m2-1": [
-  { "id": "m2-1q1", "pertanyaan": "Mata pencaharian utama manusia pada masa Paleolitikum adalah...", "opsi": ["Bercocok tanam di sawah", "Berburu hewan dan mengumpulkan makanan liar", "Berdagang antarpulau", "Melebur logam"], "jawaban": 1 },
-  { "id": "m2-1q2", "pertanyaan": "Ciri utama alat-alat pada masa Paleolitikum adalah...", "opsi": ["Sudah diasah halus dan berbentuk simetris", "Terbuat dari batu, tulang, dan kayu dengan bentuk kasar", "Terbuat dari perunggu", "Terbuat dari besi tempa"], "jawaban": 1 },
-  { "id": "m2-1q3", "pertanyaan": "Cara hidup manusia pada masa Paleolitikum bersifat...", "opsi": ["Menetap dan membangun rumah permanen", "Nomaden, berpindah-pindah mengikuti sumber makanan", "Tinggal di rumah panggung tepi pantai", "Berlayar dengan perahu bercadik"], "jawaban": 1 },
-  { "id": "m2-1q4", "pertanyaan": "Pembagian kerja pada masa Paleolitikum umumnya berbentuk...", "opsi": ["Laki-laki berburu, perempuan mengumpulkan makanan dan mengurus anak", "Perempuan berburu, laki-laki menjaga api", "Tidak ada pembagian kerja sama sekali", "Anak-anak yang bertugas berburu"], "jawaban": 0 },
-  { "id": "m2-1q5", "pertanyaan": "Kebudayaan Pacitan pada masa Paleolitikum di Indonesia dikenal dengan alat berupa...", "opsi": ["Kapak penetak (chopper) dari batu", "Nekara perunggu", "Kapak lonjong yang diasah halus", "Gerabah tanah liat"], "jawaban": 0 },
-  { "id": "m2-1q6", "pertanyaan": "Kebudayaan Ngandong pada masa Paleolitikum di Indonesia menghasilkan alat dari...", "opsi": ["Besi", "Emas dan perak", "Tulang dan alat serpih (flakes)", "Perunggu"], "jawaban": 2 }
-],
+
+    "m2-1": [
+      { "id": "m2-1q1", "pertanyaan": "Mata pencaharian utama manusia pada masa Paleolitikum adalah...", "opsi": ["Bercocok tanam di sawah", "Berburu hewan dan mengumpulkan makanan liar", "Berdagang antarpulau", "Melebur logam"], "jawaban": 1 },
+      { "id": "m2-1q2", "pertanyaan": "Ciri utama alat-alat pada masa Paleolitikum adalah...", "opsi": ["Sudah diasah halus dan berbentuk simetris", "Terbuat dari batu, tulang, dan kayu dengan bentuk kasar", "Terbuat dari perunggu", "Terbuat dari besi tempa"], "jawaban": 1 },
+      { "id": "m2-1q3", "pertanyaan": "Cara hidup manusia pada masa Paleolitikum bersifat...", "opsi": ["Menetap dan membangun rumah permanen", "Nomaden, berpindah-pindah mengikuti sumber makanan", "Tinggal di rumah panggung tepi pantai", "Berlayar dengan perahu bercadik"], "jawaban": 1 },
+      { "id": "m2-1q4", "pertanyaan": "Pembagian kerja pada masa Paleolitikum umumnya berbentuk...", "opsi": ["Laki-laki berburu, perempuan mengumpulkan makanan dan mengurus anak", "Perempuan berburu, laki-laki menjaga api", "Tidak ada pembagian kerja sama sekali", "Anak-anak yang bertugas berburu"], "jawaban": 0 },
+      { "id": "m2-1q5", "pertanyaan": "Kebudayaan Pacitan pada masa Paleolitikum di Indonesia dikenal dengan alat berupa...", "opsi": ["Kapak penetak (chopper) dari batu", "Nekara perunggu", "Kapak lonjong yang diasah halus", "Gerabah tanah liat"], "jawaban": 0 },
+      { "id": "m2-1q6", "pertanyaan": "Kebudayaan Ngandong pada masa Paleolitikum di Indonesia menghasilkan alat dari...", "opsi": ["Besi", "Emas dan perak", "Tulang dan alat serpih (flakes)", "Perunggu"], "jawaban": 2 }
+    ],
 
     "m3-1": [
-  { "id": "m3-1q1", "pertanyaan": "Apa itu tk?", "opsi": ["Tukang kurupuk", "tkj", "tkr", "tko"], "jawaban": 0 }
-]
+      { "id": "m3-1q1", "pertanyaan": "Fosil Pithecanthropus erectus pertama kali ditemukan oleh...", "opsi": ["Gustav Heinrich Ralph von Koenigswald", "Eugène Dubois", "B.D. van Rietschoten", "Teuku Jacob"], "jawaban": 1 },
+      { "id": "m3-1q2", "pertanyaan": "Pithecanthropus erectus ditemukan pada tahun 1891 di...", "opsi": ["Sangiran, Jawa Tengah", "Wajak, Tulungagung", "Trinil, tepi Bengawan Solo", "Mojokerto, Jawa Timur"], "jawaban": 2 },
+      { "id": "m3-1q3", "pertanyaan": "Arti nama 'Pithecanthropus erectus' adalah...", "opsi": ["Manusia besar dari Jawa", "Manusia kera yang berjalan tegak", "Manusia yang bijaksana", "Manusia gua purba"], "jawaban": 1 },
+      { "id": "m3-1q4", "pertanyaan": "Volume otak Pithecanthropus erectus diperkirakan sekitar...", "opsi": ["±500 cc", "±900 cc", "±1.300 cc", "±1.450 cc"], "jawaban": 1 },
+      { "id": "m3-1q5", "pertanyaan": "Kemampuan tangan Pithecanthropus erectus memungkinkannya membuat alat khas dari kebudayaan...", "opsi": ["Ngandong", "Dongson", "Pacitan", "Bacson-Hoabinh"], "jawaban": 2 }
+    ]
+  }
 }
