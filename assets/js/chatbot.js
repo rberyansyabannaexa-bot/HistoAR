@@ -1,22 +1,9 @@
-/**
- * chatbot.js
- * Tanggung jawab: render UI chat HistoAI, kirim pesan, tandai "sudah dipakai".
- * Belum connect ke API/LLM beneran — respons masih scripted berbasis skor.
- * Nanti tinggal ganti isi generateResponse() dengan fetch ke endpoint LLM.
- */
-
 class Chatbot {
-  /**
-   * @param {Object} elements - { log, input, sendBtn }
-   * @param {Object} context - { materiJudul, score, total }
-   * @param {Function} onFirstInteraction - dipanggil sekali begitu siswa kirim pesan pertama
-   */
   constructor(elements, context, onFirstInteraction) {
     this.el = elements;
-    this.context = context;
+    this.context = context; // sekarang wajib punya: materiId, materiJudul, score, total
     this.onFirstInteraction = onFirstInteraction;
     this.hasInteracted = false;
-
     this.el.sendBtn.addEventListener("click", () => this.handleSend());
     this.el.input.addEventListener("keydown", (e) => {
       if (e.key === "Enter") this.handleSend();
@@ -40,10 +27,9 @@ class Chatbot {
     this.el.log.scrollTop = this.el.log.scrollHeight;
   }
 
-  handleSend() {
+  async handleSend() {
     const text = this.el.input.value.trim();
     if (!text) return;
-
     this.addMessage("user", text);
     this.el.input.value = "";
 
@@ -52,14 +38,28 @@ class Chatbot {
       this.onFirstInteraction();
     }
 
-    // Placeholder: nanti diganti pemanggilan API LLM beneran.
-    const reply = this.generateResponse(text);
-    setTimeout(() => this.addMessage("bot", reply), 400);
+    this.addMessage("bot", "Mengetik...");
+    const reply = await this.generateResponse(text);
+    this.el.log.lastChild.remove(); // hapus "Mengetik..."
+    this.addMessage("bot", reply);
   }
 
-  generateResponse(userText) {
-    return `Catatan diterima: "${userText}". (Respons HistoAI masih placeholder — sambungkan ke API LLM di sini menggunakan context materi "${this.context.materiJudul}".)`;
+  async generateResponse(userText) {
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          materi_id: this.context.materiId,
+          pertanyaan: userText,
+        }),
+      });
+      const data = await res.json();
+      return data.jawaban || "Maaf, terjadi kesalahan. Coba lagi ya.";
+    } catch (err) {
+      console.error(err);
+      return "Maaf, HistoAI sedang tidak bisa dihubungi. Coba beberapa saat lagi.";
+    }
   }
 }
-
 window.Chatbot = Chatbot;
