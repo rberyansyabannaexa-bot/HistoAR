@@ -25,10 +25,8 @@ function cariMateri(materiId) {
 }
 
 function ringkasKonten(materi) {
-  const bagian = [materi.ringkasan || ""];
-  for (const k of materi.konten || []) {
-    bagian.push(`${k.judul}: ${k.isi}`);
-  }
+  return materi.ringkasan || "";
+}
   return bagian.join("\n\n");
 }
 
