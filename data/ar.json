@@ -1,5 +1,5 @@
 {
-  "_petunjuk": "Setiap materi punya 'targetMind' (hasil compile semua gambar target materi itu jadi 1 file .mind via https://hiukim.github.io/mind-ar-js-doc/tools/compile) dan daftar 'targets'. targetIndex harus urut sesuai urutan gambar saat di-compile. Ganti semua path model/audio di bawah dengan file asli kamu.",
+  "_petunjuk": "Setiap materi punya 'targetMind' (hasil compile semua gambar target materi itu jadi 1 file .mind via https://hiukim.github.io/mind-ar-js-doc/tools/compile) dan daftar 'targets'. targetIndex harus urut sesuai urutan gambar saat di-compile.",
 
   "m1": {
     "targetMind": "assets/ar/targets/periodisasi-geologi.mind",
@@ -22,57 +22,58 @@
   },
 
   "m2-1": {
-  "targetMind": "assets/ar/targets/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu.mind",
-  "targets": [
-    {
-      "key": "paleolitikum",
-      "label": "Masa Berburu dan Meramu Sederhana (Paleolitikum)",
-      "targetIndex": 0,
-      "model": "assets/models/empat-masa-kehidupan-manusia-praaksara/berburu_meramu.glb",
-      "scale": "0.3 0.3 0.3",
-      "introAudio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/intro.mp3",
-      "hotspots": [
-        { "id": "mata-pencaharian", "label": "Cara Mendapatkan Makanan", "teks": "Mata pencaharian dilakukan dengan berburu hewan dan mengumpulkan umbi-umbian, buah-buahan, serta tumbuhan liar yang dapat dimakan.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/cara-mendapatkan-makanan.mp3" },
-        { "id": "alat", "label": "Alat yang Dipakai", "teks": "Peralatan terbuat dari batu, tulang, dan kayu dengan bentuk yang masih kasar, seperti kapak genggam, kapak penetak, alat serpih, serta alat dari tulang. Mereka juga menggunakan jebakan dan teknik menggiring hewan ke jurang saat berburu.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/alat-yang-dipakai.mp3" },
-        { "id": "cara-hidup", "label": "Cara Hidup", "teks": "Cara hidup bersifat nomaden mengikuti sumber makanan. Mereka tinggal di dekat sungai, danau, atau gua, serta hidup dalam kelompok kecil untuk memudahkan berburu dan bertahan hidup.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/cara-hidup.mp3" },
-        { "id": "pembagian-kerja", "label": "Pembagian Kerja", "teks": "Pembagian kerja mulai terlihat: laki-laki berburu, sedangkan perempuan mengumpulkan makanan, mengurus anak, dan menjaga api setelah manusia mengenalnya.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/pembagian-kerja.mp3" },
-        { "id": "seni-komunikasi", "label": "Seni dan Komunikasi", "teks": "Seni dan komunikasi sudah berkembang dalam bentuk lukisan sederhana bertema hewan buruan serta komunikasi menggunakan kata-kata pendek dan gerak tubuh.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/seni-dan-komunikasi.mp3" },
-        { "id": "kebudayaan-indonesia", "label": "Kebudayaan Paleolitikum di Indonesia", "teks": "Di Indonesia, kebudayaan Paleolitikum terbagi menjadi Kebudayaan Pacitan yang dikenal dengan kapak penetak (chopper) dari batu, dan Kebudayaan Ngandong yang menghasilkan alat dari tulang dan alat serpih (flakes).", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/kebudayaan-paleolitikum-di-indonesia.mp3" }
-     ]
-    }
-  ]
-},
-  "m3-1": {
-  "targetMind": "assets/ar/targets/tiga-jenis-manusia-purba/pithecanthropus.mind",
-  "targets": [
-    {
-      "key": "pithecanthropus",
-      "label": "Pithecanthropus Erectus",
-      "targetIndex": 0,
-      "model": "assets/models/tiga-jenis-manusia-purba/pithecanthropus.glb",
-      "scale": "0.3 0.3 0.3",
-      "introAudio": "assets/audio/tiga-jenis-manusia-purba/pithecanthropus/intro.mp3",
-      "hotspots": [
-        {
-          "id": "kepala",
-          "label": "Kepala",
-          "audio": "assets/audio/tiga-jenis-manusia-purba/pithecanthropus/kepala.mp3",
-          "teks": "Kalian sedang melihat kepala manusia purba yang membuat dunia sains geger di akhir abad ke-19. Volume otaknya sekitar 900 cc, kurang dari dua pertiga volume otak kalian sekarang. Tulang alisnya menonjol, dahinya miring ke belakang, dan tengkoraknya berat. Otak sekecil ini sudah cukup untuk membuat alat batu sederhana dan hidup berkelompok, tetapi belum cukup untuk mengembangkan bahasa rumit atau seni lukis. Fosil tengkoraknya digali oleh Eugène Dubois, seorang dokter Belanda, tahun 1891 di Trinil, tepi Bengawan Solo, Ngawi."
-        },
-        {
-          "id": "mata",
-          "label": "Mata",
-          "audio": "assets/audio/tiga-jenis-manusia-purba/pithecanthropus/mata.mp3",
-          "teks": "Mata Pithecanthropus terletak di balik tulang alis yang tebal dan menonjol. Bentuk itu bukan hiasan. Tulang alis tebal melindungi mata dari benturan saat berburu, sekaligus meredam sinar matahari terik di padang rumput terbuka Jawa purba. Pandangannya tajam untuk mengintai buruan dari jarak jauh, tetapi indera penciumannya kalah dibanding hewan pemangsa lain. Untuk menyeimbangkan kelemahan itu, ia berburu berkelompok dan memakai jebakan sederhana."
-        },
-        {
-          "id": "tangan",
-          "label": "Tangan",
-          "audio": "assets/audio/tiga-jenis-manusia-purba/pithecanthropus/tangan.mp3",
-          "teks": "Perhatikan tangannya. Jari-jarinya kuat, ibu jarinya sudah bisa berlawanan dengan jari lain, mirip tangan kalian. Kemampuan ini memungkinkan ia menggenggam batu erat dan memukulkannya dengan tepat. Tangan inilah yang membentuk teknologi paling awal di Nusantara, yaitu kapak perimbas dan kapak genggam khas Kebudayaan Pacitan. Alat-alat itu memang masih kasar. Tidak ada tangkai, tidak diasah halus. Cukup untuk memotong daging, mengorek umbi, dan mengupas kulit hewan buruan. Sederhana, tetapi mengubah cara manusia bertahan hidup di padang rumput yang keras."
-        }
-      ]
-    }
-  ]
-}
+    "targetMind": "assets/ar/targets/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu.mind",
+    "targets": [
+      {
+        "key": "paleolitikum",
+        "label": "Masa Berburu dan Meramu Sederhana (Paleolitikum)",
+        "targetIndex": 0,
+        "model": "assets/models/empat-masa-kehidupan-manusia-praaksara/berburu_meramu.glb",
+        "scale": "0.3 0.3 0.3",
+        "introAudio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/intro.mp3",
+        "hotspots": [
+          { "id": "mata-pencaharian", "label": "Cara Mendapatkan Makanan", "teks": "Mata pencaharian dilakukan dengan berburu hewan dan mengumpulkan umbi-umbian, buah-buahan, serta tumbuhan liar yang dapat dimakan.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/cara-mendapatkan-makanan.mp3" },
+          { "id": "alat", "label": "Alat yang Dipakai", "teks": "Peralatan terbuat dari batu, tulang, dan kayu dengan bentuk yang masih kasar, seperti kapak genggam, kapak penetak, alat serpih, serta alat dari tulang. Mereka juga menggunakan jebakan dan teknik menggiring hewan ke jurang saat berburu.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/alat-yang-dipakai.mp3" },
+          { "id": "cara-hidup", "label": "Cara Hidup", "teks": "Cara hidup bersifat nomaden mengikuti sumber makanan. Mereka tinggal di dekat sungai, danau, atau gua, serta hidup dalam kelompok kecil untuk memudahkan berburu dan bertahan hidup.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/cara-hidup.mp3" },
+          { "id": "pembagian-kerja", "label": "Pembagian Kerja", "teks": "Pembagian kerja mulai terlihat: laki-laki berburu, sedangkan perempuan mengumpulkan makanan, mengurus anak, dan menjaga api setelah manusia mengenalnya.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/pembagian-kerja.mp3" },
+          { "id": "seni-komunikasi", "label": "Seni dan Komunikasi", "teks": "Seni dan komunikasi sudah berkembang dalam bentuk lukisan sederhana bertema hewan buruan serta komunikasi menggunakan kata-kata pendek dan gerak tubuh.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/seni-dan-komunikasi.mp3" },
+          { "id": "kebudayaan-indonesia", "label": "Kebudayaan Paleolitikum di Indonesia", "teks": "Di Indonesia, kebudayaan Paleolitikum terbagi menjadi Kebudayaan Pacitan yang dikenal dengan kapak penetak (chopper) dari batu, dan Kebudayaan Ngandong yang menghasilkan alat dari tulang dan alat serpih (flakes).", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/kebudayaan-paleolitikum-di-indonesia.mp3" }
+        ]
+      }
+    ]
+  },
 
+  "m3-1": {
+    "targetMind": "assets/ar/targets/tiga-jenis-manusia-purba/pithecanthropus.mind",
+    "targets": [
+      {
+        "key": "pithecanthropus",
+        "label": "Pithecanthropus Erectus",
+        "targetIndex": 0,
+        "model": "assets/models/tiga-jenis-manusia-purba/pithecanthropus.glb",
+        "scale": "0.3 0.3 0.3",
+        "introAudio": "assets/audio/tiga-jenis-manusia-purba/pithecanthropus/intro.mp3",
+        "hotspots": [
+          {
+            "id": "kepala",
+            "label": "Kepala",
+            "audio": "assets/audio/tiga-jenis-manusia-purba/pithecanthropus/kepala.mp3",
+            "teks": "Kalian sedang melihat kepala manusia purba yang membuat dunia sains geger di akhir abad ke-19. Volume otaknya sekitar 900 cc, kurang dari dua pertiga volume otak kalian sekarang. Tulang alisnya menonjol, dahinya miring ke belakang, dan tengkoraknya berat. Otak sekecil ini sudah cukup untuk membuat alat batu sederhana dan hidup berkelompok, tetapi belum cukup untuk mengembangkan bahasa rumit atau seni lukis. Fosil tengkoraknya digali oleh Eugène Dubois, seorang dokter Belanda, tahun 1891 di Trinil, tepi Bengawan Solo, Ngawi."
+          },
+          {
+            "id": "mata",
+            "label": "Mata",
+            "audio": "assets/audio/tiga-jenis-manusia-purba/pithecanthropus/mata.mp3",
+            "teks": "Mata Pithecanthropus terletak di balik tulang alis yang tebal dan menonjol. Bentuk itu bukan hiasan. Tulang alis tebal melindungi mata dari benturan saat berburu, sekaligus meredam sinar matahari terik di padang rumput terbuka Jawa purba. Pandangannya tajam untuk mengintai buruan dari jarak jauh, tetapi indera penciumannya kalah dibanding hewan pemangsa lain. Untuk menyeimbangkan kelemahan itu, ia berburu berkelompok dan memakai jebakan sederhana."
+          },
+          {
+            "id": "tangan",
+            "label": "Tangan",
+            "audio": "assets/audio/tiga-jenis-manusia-purba/pithecanthropus/tangan.mp3",
+            "teks": "Perhatikan tangannya. Jari-jarinya kuat, ibu jarinya sudah bisa berlawanan dengan jari lain, mirip tangan kalian. Kemampuan ini memungkinkan ia menggenggam batu erat dan memukulkannya dengan tepat. Tangan inilah yang membentuk teknologi paling awal di Nusantara, yaitu kapak perimbas dan kapak genggam khas Kebudayaan Pacitan. Alat-alat itu memang masih kasar. Tidak ada tangkai, tidak diasah halus. Cukup untuk memotong daging, mengorek umbi, dan mengupas kulit hewan buruan. Sederhana, tetapi mengubah cara manusia bertahan hidup di padang rumput yang keras."
+          }
+        ]
+      }
+    ]
+  }
+}
