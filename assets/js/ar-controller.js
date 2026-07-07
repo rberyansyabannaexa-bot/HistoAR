@@ -139,7 +139,7 @@ function updateGateButton() {
 
 const ZOOM_STEP = 0.2;
 const MIN_ZOOM = 0.3;
-const MAX_ZOOM = 3;
+const MAX_ZOOM = 8;
 const ROTATE_SPEED = 0.4; // derajat per pixel drag
 
 let baseScaleVec = { x: 0.3, y: 0.3, z: 0.3 };
