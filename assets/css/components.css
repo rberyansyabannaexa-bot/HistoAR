@@ -190,7 +190,11 @@ body.ar-mode {
   overflow: hidden;
   background: #000;
 }
-#arRoot { position: fixed; inset: 0; }
+#arRoot {
+  position: fixed;
+  inset: 0;
+  --ar-panel-height: 48vh; /* dipakai bareng oleh .ar-panel dan posisi kontrol, biar sinkron kalau angka ini berubah */
+}
 
 .ar-topbar {
   position: absolute;
@@ -234,7 +238,7 @@ body.ar-mode {
 
 .ar-view-controls {
   position: absolute;
-  top: calc(var(--space-4) + 48px);
+  bottom: calc(var(--ar-panel-height) + var(--space-3) + var(--space-2));
   right: var(--space-3);
   z-index: 22;
   display: flex;
@@ -299,7 +303,7 @@ body.ar-mode {
   transform: translateX(-50%);
   z-index: 30;
   width: min(92vw, 480px);
-  max-height: 48vh; /* diperkecil dari 70vh biar model 3D di atasnya tetep keliatan */
+  max-height: var(--ar-panel-height); /* diperkecil dari 70vh biar model 3D di atasnya tetep keliatan */
   overflow-y: auto;
   background: rgba(28, 24, 20, 0.94);
   border: var(--border);
@@ -448,7 +452,7 @@ body.ar-locked-in [class*="mindar-ui"] {
 .ar-move-controls{
   position:absolute;
 
-  top:calc(var(--space-4) + 48px);
+  bottom:calc(var(--ar-panel-height) + var(--space-3) + var(--space-2));
   left:var(--space-3);
 
   z-index:22;
