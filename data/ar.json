@@ -65,7 +65,7 @@
           {
               "id":"kepala",
               "label":"Kepala",
-              "model":"assets/models/tiga-jenis-manusia-purba/pithecanthropus-hotspot.glb",
+              "model":"assets/models/tiga-jenis-manusia-purba/pithecanthropus-kepala.glb",
               "view":{
                   "rotX":0,
                   "rotY":0,
@@ -74,13 +74,13 @@
                   "moveZ":0
               },
           
-              "audio":"...",
-              "teks":"..."
+              "audio":"assets/audio/tiga-jenis-manusia-purba/pithecanthropus/kepala.mp3",
+              "teks":"Kalian sedang melihat kepala manusia purba yang membuat dunia sains geger di akhir abad ke-19. Volume otaknya sekitar 900 cc, kurang dari dua pertiga volume otak kalian sekarang. Tulang alisnya menonjol, dahinya miring ke belakang, dan tengkoraknya berat. Otak sekecil ini sudah cukup untuk membuat alat batu sederhana dan hidup berkelompok, tetapi belum cukup untuk mengembangkan bahasa rumit atau seni lukis. Fosil tengkoraknya digali oleh Eugène Dubois, seorang dokter Belanda, tahun 1891 di Trinil, tepi Bengawan Solo, Ngawi."
           },
           {
               "id":"mata",
               "label":"mata",
-              "model":"assets/models/tiga-jenis-manusia-purba/pithecanthropus-hotspot.glb",
+              "model":"assets/models/tiga-jenis-manusia-purba/pithecanthropus-kepala.glb",
               "view":{
                   "rotX":0,
                   "rotY":0,
@@ -89,12 +89,12 @@
                   "moveZ":0
               },
           
-              "audio":"...",
-              "teks":"..."
+              "audio":"assets/audio/tiga-jenis-manusia-purba/pithecanthropus/mata.mp3",
+              "teks":"Mata Pithecanthropus terletak di balik tulang alis yang tebal dan menonjol. Bentuk itu bukan hiasan. Tulang alis tebal melindungi mata dari benturan saat berburu, sekaligus meredam sinar matahari terik di padang rumput terbuka Jawa purba. Pandangannya tajam untuk mengintai buruan dari jarak jauh, tetapi indera penciumannya kalah dibanding hewan pemangsa lain. Untuk menyeimbangkan kelemahan itu, ia berburu berkelompok dan memakai jebakan sederhana."
           },
           {
-            "id":"mata",
-            "label":"mata",
+            "id":"tangan",
+            "label":"tangan",
             "model":"assets/models/tiga-jenis-manusia-purba/pithecanthropus-hotspot.glb",
             "view":{
                 "rotX":0,
@@ -104,8 +104,8 @@
                 "moveZ":0
             },
         
-            "audio":"...",
-            "teks":"..."
+            "audio":"assets/audio/tiga-jenis-manusia-purba/pithecanthropus/mata.mp3",
+            "teks":"Perhatikan tangannya. Jari-jarinya kuat, ibu jarinya sudah bisa berlawanan dengan jari lain, mirip tangan kalian. Kemampuan ini memungkinkan ia menggenggam batu erat dan memukulkannya dengan tepat. Tangan inilah yang membentuk teknologi paling awal di Nusantara, yaitu kapak perimbas dan kapak genggam khas Kebudayaan Pacitan. Alat-alat itu memang masih kasar. Tidak ada tangkai, tidak diasah halus. Cukup untuk memotong daging, mengorek umbi, dan mengupas kulit hewan buruan. Sederhana, tetapi mengubah cara manusia bertahan hidup di padang rumput yang keras."
         }
         ]
       }
