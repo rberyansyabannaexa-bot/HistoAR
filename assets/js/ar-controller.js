@@ -488,7 +488,7 @@ function buildScene(config) {
     .join("");
 
   sceneRoot.innerHTML = `
-    <a-scene mindar-image="imageTargetSrc: ${config.targetMind}; autoStart: true; filterMinCF: 0.0001; filterBeta: 100;"
+    <a-scene mindar-image="imageTargetSrc: ${config.targetMind}; autoStart: true; filterMinCF: 0.00001; filterBeta: 5; warmupTolerance: 5; missTolerance: 5;"
       color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights"
       vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
