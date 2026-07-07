@@ -1,27 +1,32 @@
 import materiData from "../data/materi.json";
 
-const API_URL = "https://gateway.dahono.com/v1/chat/completions";
+const API_URL = "https://api.kie.ai/gemini-2.5-flash/v1/chat/completions";
 
 function cariMateri(id) {
   return materiData.materi.find((m) => m.id === id);
 }
 
 function buatPrompt(judul, konteks, pertanyaan) {
-  return `Kamu adalah HistoAI, asisten belajar sejarah SMA.
+  return `Kamu adalah HistoAI, asisten belajar sejarah untuk siswa SMA.
 
 ATURAN:
 1. Jawab HANYA berdasarkan materi berikut.
-2. Jika pertanyaan di luar materi, balas:
+2. Jangan menggunakan informasi di luar materi.
+3. Jika pertanyaan di luar materi, jawab PERSIS:
 "Mohon maaf, pertanyaan yang anda ajukan diluar konteks dari materi ini"
 
-Judul:
+====================
+Judul Materi:
 ${judul}
 
 Materi:
 ${konteks}
 
+====================
+
 Pertanyaan:
-${pertanyaan}`;
+${pertanyaan}
+`;
 }
 
 export default async function handler(req, res) {
@@ -48,22 +53,28 @@ export default async function handler(req, res) {
       });
     }
 
+    const prompt = buatPrompt(
+      materi.judul,
+      materi.ringkasan,
+      pertanyaan
+    );
+
     const response = await fetch(API_URL, {
       method: "POST",
       headers: {
+        Authorization: `Bearer ${process.env.KIE_AI_API_KEY}`,
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.DAHONO_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "dahono/deepseek-v3.2",
         messages: [
           {
             role: "user",
-            content: buatPrompt(
-              materi.judul,
-              materi.ringkasan,
-              pertanyaan
-            ),
+            content: [
+              {
+                type: "text",
+                text: prompt,
+              },
+            ],
           },
         ],
       }),
@@ -77,9 +88,14 @@ export default async function handler(req, res) {
       return res.status(response.status).json(json);
     }
 
+    const reply =
+      json.choices?.[0]?.message?.content ??
+      "Maaf, tidak ada balasan dari AI.";
+
     return res.json({
-      reply: json.choices[0].message.content,
+      reply,
     });
+
   } catch (err) {
     console.error(err);
 
