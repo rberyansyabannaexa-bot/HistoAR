@@ -316,7 +316,7 @@ function initDragRotate() {
     lastX = e.clientX;
     lastY = e.clientY;
     rotY += dx * ROTATE_SPEED;
-    rotX += dy * ROTATE_SPEED;
+    rotX = 0;
     applyWrapperTransform(activeTarget.key);
   });
 
