@@ -37,7 +37,7 @@ AFRAME.registerComponent("autoplay-animations", {
   },
 });
 
-const DEFAULT_SCALE = "0.3 0.3 0.3"; // fallback kalau target/hotspot gak nentuin scale sendiri
+const DEFAULT_SCALE = "0.5 0.5 0.5"; // fallback kalau target/hotspot gak nentuin scale sendiri
 const AUDIO_LOCK_TIMEOUT_MS = 12000; // pengaman: paling lama hotspot ke-lock 12 detik, apapun yang terjadi ke audio
 
 const visited = new Set(); // isi: "targetKey:hotspotId"
@@ -195,7 +195,41 @@ function resetView() {
   applyWrapperTransform(activeTarget.key);
 }
 
-/** Drag (mouse/jari) di area kamera buat muter model 360°. */
+/**
+ * Terapin preset "fokus kamera" per hotspot - zoom & rotasi tertentu biar
+ * kerasa kayak lagi nyorot bagian itu doang, TANPA perlu misahin mesh model.
+ * view = { rotX, rotY, zoom } - kalau hotspot gak punya field 'view', dibiarin
+ * apa adanya (posisi terakhir siswa gak keganggu).
+ */
+/**
+ * Terapin preset "fokus kamera" - zoom & rotasi tertentu. Dipake buat 2 hal:
+ * 1) defaultView di level target -> tampilan awal pas baru discan (besar & ngadep kamera)
+ * 2) view di level hotspot -> fokus ke bagian tertentu (opsional, gak wajib diisi)
+ * view = { rotX, rotY, zoom } - kalau kosong/gak ada, dibiarin apa adanya.
+ */
+function applyPresetView(view) {
+  if (!view || !activeTarget) return;
+  if (typeof view.zoom === "number") zoomFactor = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, view.zoom));
+  if (typeof view.rotY === "number") rotY = view.rotY;
+  if (typeof view.rotX === "number") rotX = view.rotX;
+  applyWrapperTransform(activeTarget.key);
+}
+
+/**
+ * Tombol bantu buat NYARI angka zoom/rotasi yang pas: siswa/guru drag & zoom
+ * manual dulu sampe framing-nya pas, terus tap tombol ini - hasilnya disalin
+ * ke clipboard dalam format siap-tempel ke ar.json.
+ */
+function copyCurrentView() {
+  const snippet = `"view": { "rotX": ${Math.round(rotX)}, "rotY": ${Math.round(rotY)}, "zoom": ${zoomFactor.toFixed(2)} }`;
+  navigator.clipboard?.writeText(snippet).catch(() => {});
+  const toast = document.getElementById("arCopyToast");
+  if (toast) {
+    toast.textContent = `Disalin: ${snippet}`;
+    toast.hidden = false;
+    setTimeout(() => { toast.hidden = true; }, 4000);
+  }
+}
 function initDragRotate() {
   const root = document.getElementById("arSceneRoot");
   let dragging = false;
@@ -233,8 +267,16 @@ function updateModel(targetKey, modelSrc, scale) {
   const sceneRoot = document.getElementById("arSceneRoot");
   const modelEl = sceneRoot.querySelector(`[data-target-key="${targetKey}"] a-gltf-model`);
   if (!modelEl) return;
-  modelEl.setAttribute("src", modelSrc);
-  setBaseScale(targetKey, scale);
+
+  const currentSrc = modelEl.getAttribute("src");
+  const isSameModel = currentSrc === modelSrc;
+
+  if (!isSameModel) {
+    modelEl.setAttribute("src", modelSrc);
+    setBaseScale(targetKey, scale); // model beneran ganti file -> wajar di-reset ke default barunya
+  }
+  // kalau model-nya sama persis (cuma teks/audio yang ganti), zoom & rotasi
+  // yang lagi diatur siswa dibiarin apa adanya, gak di-reset.
 }
 
 /**
@@ -272,6 +314,7 @@ function openPanel(target, isFirstOpen) {
 
   if (isFirstOpen) {
     updateModel(target.key, target.model, target.scale);
+    applyPresetView(target.defaultView); // biar model langsung gede & ngadep kamera pas baru discan
     desc.textContent = "Pilih salah satu bagian di atas untuk mendengar & membaca penjelasannya.";
     playIntroAudio(target.introAudio);
   } else {
@@ -293,6 +336,7 @@ function selectHotspot(target, hotspot, btnEl) {
   }
 
   updateModel(target.key, hotspot.model || target.model, hotspot.scale || target.scale);
+  applyPresetView(hotspot.view); // 'fokus' kamera ke bagian ini (kalau ada preset-nya di ar.json) - opsional
   desc.textContent = hotspot.teks;
   playNarrationAudio(hotspot.audio, null);
 
@@ -356,6 +400,9 @@ async function initAR() {
     if (zoomInBtn) zoomInBtn.addEventListener("click", zoomIn);
     if (zoomOutBtn) zoomOutBtn.addEventListener("click", zoomOut);
     if (resetBtn) resetBtn.addEventListener("click", resetView);
+
+    const copyViewBtn = document.getElementById("btnCopyView");
+    if (copyViewBtn) copyViewBtn.addEventListener("click", copyCurrentView);
 
     const nextBtn = document.getElementById("btnKeQuiz");
     if (nextBtn) {
