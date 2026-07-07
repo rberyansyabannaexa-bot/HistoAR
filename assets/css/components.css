@@ -253,6 +253,22 @@ body.ar-mode {
 }
 .ar-view-controls button:hover { border-color: var(--rust-bright); }
 
+.ar-copy-toast {
+  position: absolute;
+  top: var(--space-3);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  background: var(--moss);
+  color: #0e1a10;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.5em 1em;
+  border-radius: var(--radius);
+  max-width: 90vw;
+  word-break: break-all;
+}
+
 .ar-scan-hint {
   position: absolute;
   bottom: var(--space-4);
@@ -283,9 +299,9 @@ body.ar-mode {
   transform: translateX(-50%);
   z-index: 30;
   width: min(92vw, 480px);
-  max-height: 70vh;
+  max-height: 48vh; /* diperkecil dari 70vh biar model 3D di atasnya tetep keliatan */
   overflow-y: auto;
-  background: rgba(28, 24, 20, 0.96);
+  background: rgba(28, 24, 20, 0.94);
   border: var(--border);
   border-radius: var(--radius);
   padding: var(--space-3);
@@ -315,11 +331,15 @@ body.ar-mode {
 }
 .ar-hotspot-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   gap: 0.5em;
   margin-bottom: var(--space-2);
+  padding-bottom: 0.3em; /* ruang buat scrollbar tipis biar gak nempel teks */
+  scrollbar-width: thin;
 }
 .ar-hotspot-pill {
+  flex: 0 0 auto; /* gak nyusut/ngestretch, biar scroll rapi */
   background: var(--basalt);
   border: var(--border);
   color: var(--bone);
@@ -328,6 +348,7 @@ body.ar-mode {
   font-size: 0.85rem;
   cursor: pointer;
   font-family: var(--font-body);
+  white-space: nowrap;
 }
 .ar-hotspot-pill:hover { border-color: var(--rust-bright); }
 .ar-hotspot-pill.is-active {
@@ -343,7 +364,28 @@ body.ar-mode {
   font-size: 0.92rem;
   line-height: 1.5;
   color: var(--bone);
+  margin-bottom: var(--space-1);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.ar-panel__desc.is-expanded {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+.ar-desc-toggle {
+  background: none;
+  border: none;
+  color: var(--rust-bright);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0;
   margin-bottom: var(--space-2);
+  cursor: pointer;
+  display: block;
 }
 .ar-progress-dots {
   display: flex;
