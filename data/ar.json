@@ -1,5 +1,6 @@
 {
   "_petunjuk": "Setiap materi punya 'targetMind' (hasil compile semua gambar target materi itu jadi 1 file .mind via https://hiukim.github.io/mind-ar-js-doc/tools/compile) dan daftar 'targets'. targetIndex harus urut sesuai urutan gambar saat di-compile.",
+  "_petunjuk_defaultView": "defaultView = tampilan awal pas target baru kedeteksi (zoom lebih besar + ngadep kamera). Nilai di bawah cuma titik awal (zoom:2, rotasi:0) - WAJIB di-tuning per model pake tombol 📐 di layar AR: drag & zoom manual sampe pas, tap 📐, salin hasilnya ke sini.",
 
   "m1": {
     "targetMind": "assets/ar/targets/periodisasi-geologi.mind",
@@ -10,6 +11,7 @@
         "targetIndex": 0,
         "model": "assets/models/sekarang.glb",
         "scale": "0.3 0.3 0.3",
+        "defaultView": { "rotX": 0, "rotY": 0, "zoom": 2 },
         "introAudio": "assets/audio/periodisasi-geologi/intro.mp3",
         "hotspots": [
           { "id": "arkaekum", "label": "Arkaekum", "model": "assets/models/arkaekum.glb", "scale": "0.3 0.3 0.3", "audio": "assets/audio/periodisasi-geologi/arkaezoikum.mp3", "teks": "± 2.500 juta tahun lalu. Zaman tertua. Bumi masih sangat panas dan kulit buminya belum stabil. Belum ada tanda kehidupan." },
@@ -30,6 +32,7 @@
         "targetIndex": 0,
         "model": "assets/models/empat-masa-kehidupan-manusia-praaksara/berburu_meramu.glb",
         "scale": "0.3 0.3 0.3",
+        "defaultView": { "rotX": 0, "rotY": 0, "zoom": 2 },
         "introAudio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/intro.mp3",
         "hotspots": [
           { "id": "mata-pencaharian", "label": "Cara Mendapatkan Makanan", "teks": "Mata pencaharian dilakukan dengan berburu hewan dan mengumpulkan umbi-umbian, buah-buahan, serta tumbuhan liar yang dapat dimakan.", "audio": "assets/audio/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu/cara-mendapatkan-makanan.mp3" },
@@ -52,6 +55,7 @@
         "targetIndex": 0,
         "model": "assets/models/tiga-jenis-manusia-purba/pithecanthropus.glb",
         "scale": "0.3 0.3 0.3",
+        "defaultView": { "rotX": 0, "rotY": 0, "zoom": 2 },
         "introAudio": "assets/audio/tiga-jenis-manusia-purba/pithecanthropus/intro.mp3",
         "hotspots": [
           {
