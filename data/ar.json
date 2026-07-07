@@ -56,11 +56,8 @@
         "model": "assets/models/tiga-jenis-manusia-purba/pithecanthropus.glb",
         "scale": "0.3 0.3 0.3",
         "defaultView": { 
-          "rotX": 0,
           "rotY": -131,
           "zoom": 2.80,
-          "moveX": -0.560,
-          "moveZ": 1.940
         },
         
         "introAudio": "assets/audio/tiga-jenis-manusia-purba/pithecanthropus/intro.mp3",
