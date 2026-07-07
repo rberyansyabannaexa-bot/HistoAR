@@ -4,6 +4,7 @@
 
   "m1": {
     "targetMind": "assets/ar/targets/periodisasi-geologi.mind",
+    "maxZoom": 8,
     "targets": [
       {
         "key": "periodisasi-geologi",
@@ -25,6 +26,7 @@
 
   "m2-1": {
     "targetMind": "assets/ar/targets/empat-masa-kehidupan-manusia-praaksara/berburu-dan-meramu.mind",
+    "maxZoom": 8,
     "targets": [
       {
         "key": "paleolitikum",
@@ -48,6 +50,7 @@
 
   "m3-1": {
     "targetMind": "assets/ar/targets/tiga-jenis-manusia-purba/pithecanthropus.mind",
+    "maxZoom":20,
     "targets": [
       {
         "key": "pithecanthropus",
