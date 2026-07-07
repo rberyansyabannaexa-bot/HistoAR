@@ -147,6 +147,14 @@ let zoomFactor = 1;
 let rotY = 0;
 let rotX = 0;
 
+// =========================
+// Manual Translation
+// =========================
+let moveX = 0;
+let moveZ = 0;
+
+const MOVE_STEP = 0.02;
+
 function parseScale(str) {
   const parts = (str || DEFAULT_SCALE).trim().split(/\s+/).map(Number);
   return { x: parts[0] || 0.3, y: parts[1] || 0.3, z: parts[2] || 0.3 };
@@ -162,6 +170,7 @@ function applyWrapperTransform(targetKey) {
   const wrapper = sceneRoot.querySelector(`[data-wrapper="${targetKey}"]`);
   if (!wrapper) return;
   const s = baseScaleVec;
+  wrapper.setAttribute("position",`${moveX} 0 ${moveZ}`);
   wrapper.setAttribute("scale", `${s.x * zoomFactor} ${s.y * zoomFactor} ${s.z * zoomFactor}`);
   wrapper.setAttribute("rotation", `${rotX} ${rotY} 0`);
 }
@@ -172,6 +181,9 @@ function setBaseScale(targetKey, scaleStr) {
   zoomFactor = 1;
   rotY = 0;
   rotX = 0;
+  
+  moveX = 0;
+  moveZ = 0;
   applyWrapperTransform(targetKey);
 }
 
@@ -192,7 +204,50 @@ function resetView() {
   zoomFactor = 1;
   rotY = 0;
   rotX = 0;
+  
+  moveX = 0;
+  moveZ = 0;
   applyWrapperTransform(activeTarget.key);
+}
+
+function moveLeft(){
+
+    if(!activeTarget) return;
+
+    moveX -= MOVE_STEP;
+
+    applyWrapperTransform(activeTarget.key);
+
+}
+
+function moveRight(){
+
+    if(!activeTarget) return;
+
+    moveX += MOVE_STEP;
+
+    applyWrapperTransform(activeTarget.key);
+
+}
+
+function moveForward(){
+
+    if(!activeTarget) return;
+
+    moveZ -= MOVE_STEP;
+
+    applyWrapperTransform(activeTarget.key);
+
+}
+
+function moveBackward(){
+
+    if(!activeTarget) return;
+
+    moveZ += MOVE_STEP;
+
+    applyWrapperTransform(activeTarget.key);
+
 }
 
 /**
@@ -432,6 +487,23 @@ async function initAR() {
     const copyViewBtn = document.getElementById("btnCopyView");
     if (copyViewBtn) copyViewBtn.addEventListener("click", copyCurrentView);
 
+    const btnMoveLeft = document.getElementById("btnMoveLeft");
+    const btnMoveRight = document.getElementById("btnMoveRight");
+    const btnMoveForward = document.getElementById("btnMoveForward");
+    const btnMoveBackward = document.getElementById("btnMoveBackward");
+
+    if(btnMoveLeft)
+    btnMoveLeft.addEventListener("click",moveLeft);
+
+    if(btnMoveRight)
+    btnMoveRight.addEventListener("click",moveRight);
+
+    if(btnMoveForward)
+    btnMoveForward.addEventListener("click",moveForward);
+
+    if(btnMoveBackward)
+    btnMoveBackward.addEventListener("click",moveBackward);
+
     const nextBtn = document.getElementById("btnKeQuiz");
     if (nextBtn) {
       nextBtn.addEventListener("click", (e) => {
@@ -509,6 +581,8 @@ function buildScene(config) {
       if (hint) hint.hidden = true;
       const viewControls = document.getElementById("arViewControls");
       if (viewControls) viewControls.hidden = false;
+      const moveControls = document.getElementById("arMoveControls");
+      if (moveControls) moveControls.hidden = false;
       if (isFirstTime) openPanel(t, true);
     });
 
