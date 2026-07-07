@@ -55,7 +55,7 @@ export default async function handler(req, res) {
         Authorization: `Bearer ${process.env.DAHONO_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "dahono/gemini-3-flash",
+        model: "dahono/deepseek-v3.2",
         messages: [
           {
             role: "user",
