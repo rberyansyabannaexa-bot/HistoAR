@@ -35,7 +35,10 @@
     <button type="button" id="btnZoomIn" aria-label="Perbesar model">➕</button>
     <button type="button" id="btnZoomOut" aria-label="Perkecil model">➖</button>
     <button type="button" id="btnResetView" aria-label="Reset tampilan">⟲</button>
+    <button type="button" id="btnCopyView" aria-label="Salin posisi kamera saat ini" title="Salin posisi buat ditempel ke ar.json">📐</button>
   </div>
+
+  <div id="arCopyToast" class="ar-copy-toast" hidden></div>
 
   <!-- Panel hotspot muncul setelah target AR terdeteksi -->
   <div id="arPanel" class="ar-panel" hidden>
@@ -45,6 +48,7 @@
     </div>
     <div id="arHotspotRow" class="ar-hotspot-row"></div>
     <p id="arPanelDesc" class="ar-panel__desc">—</p>
+    <button type="button" id="arDescToggle" class="ar-desc-toggle" hidden>Baca selengkapnya ▾</button>
     <div id="arProgressDots" class="ar-progress-dots"></div>
     <button type="button" id="btnKeQuiz" class="btn btn-primary ar-gate-btn" disabled>🔒 Memuat…</button>
     <p id="arGateNote" class="gate-note"></p>
