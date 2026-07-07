@@ -151,7 +151,7 @@ let rotX = 0;
 // Manual Translation
 // =========================
 let moveX = 0;
-let moveZ = 0;
+let moveY = 0;
 
 const MOVE_STEP = 0.02;
 
@@ -170,7 +170,7 @@ function applyWrapperTransform(targetKey) {
   const wrapper = sceneRoot.querySelector(`[data-wrapper="${targetKey}"]`);
   if (!wrapper) return;
   const s = baseScaleVec;
-  wrapper.setAttribute("position",`${moveX} 0 ${moveZ}`);
+  wrapper.setAttribute("position",`${moveX} 0 ${moveY}`);
   wrapper.setAttribute("scale", `${s.x * zoomFactor} ${s.y * zoomFactor} ${s.z * zoomFactor}`);
   wrapper.setAttribute("rotation", `${rotX} ${rotY} 0`);
 }
@@ -183,7 +183,7 @@ function setBaseScale(targetKey, scaleStr) {
   rotX = 0;
   
   moveX = 0;
-  moveZ = 0;
+  moveY = 0;
   applyWrapperTransform(targetKey);
 }
 
@@ -203,7 +203,7 @@ function resetView() {
     if (!activeTarget) return;
 
     moveX = 0;
-    moveZ = 0;
+    moveY = 0;
 
     applyPresetView(activeTarget.defaultView);
 }
@@ -228,21 +228,21 @@ function moveRight(){
 
 }
 
-function moveForward(){
+function moveUp(){
 
     if(!activeTarget) return;
 
-    moveZ -= MOVE_STEP;
+    moveY += MOVE_STEP;
 
     applyWrapperTransform(activeTarget.key);
 
 }
 
-function moveBackward(){
+function moveDown(){
 
     if(!activeTarget) return;
 
-    moveZ += MOVE_STEP;
+    moveY -= MOVE_STEP;
 
     applyWrapperTransform(activeTarget.key);
 
@@ -267,8 +267,8 @@ function applyPresetView(view) {
   if (typeof view.rotX === "number") rotX = view.rotX;
   if (typeof view.moveX === "number")
     moveX = view.moveX;
-  if (typeof view.moveZ === "number")
-    moveZ = view.moveZ;
+  if (typeof view.moveY === "number")
+    moveY = view.moveY;
   applyWrapperTransform(activeTarget.key);
 }
 
@@ -278,22 +278,36 @@ function applyPresetView(view) {
  * ke clipboard dalam format siap-tempel ke ar.json.
  */
 function copyCurrentView() {
- const snippet =
-  `"view": {
-    "rotX": ${Math.round(rotX)},
+
+  if (!activeTarget) return;
+
+  const isHotspot =
+    document.querySelector(".ar-hotspot-pill.is-active") !== null;
+
+  const snippet = isHotspot
+    ? `"view": {
     "rotY": ${Math.round(rotY)},
     "zoom": ${zoomFactor.toFixed(2)},
     "moveX": ${moveX.toFixed(3)},
-    "moveZ": ${moveZ.toFixed(3)}
+    "moveY": ${moveY.toFixed(3)}
+  }`
+    : `"defaultView": {
+    "rotY": ${Math.round(rotY)},
+    "zoom": ${zoomFactor.toFixed(2)}
   }`;
+
   navigator.clipboard?.writeText(snippet).catch(() => {});
+
   const toast = document.getElementById("arCopyToast");
   if (toast) {
-    toast.textContent = `Disalin: ${snippet}`;
+    toast.textContent = `Disalin:\n${snippet}`;
     toast.hidden = false;
-    setTimeout(() => { toast.hidden = true; }, 4000);
+    setTimeout(() => {
+      toast.hidden = true;
+    }, 4000);
   }
 }
+
 function initDragRotate() {
   const root = document.getElementById("arSceneRoot");
   let dragging = false;
@@ -309,14 +323,20 @@ function initDragRotate() {
 
   window.addEventListener("pointermove", (e) => {
     if (!dragging || !activeTarget) return;
+
     const dx = e.clientX - lastX;
-    const dy = e.clientY - lastY;
+
     lastX = e.clientX;
     lastY = e.clientY;
+
+    // Hanya rotasi horizontal
     rotY += dx * ROTATE_SPEED;
+
+    // Selalu kunci rotasi vertikal
     rotX = 0;
+
     applyWrapperTransform(activeTarget.key);
-  });
+});
 
   window.addEventListener("pointerup", () => { dragging = false; });
   window.addEventListener("pointercancel", () => { dragging = false; });
@@ -498,8 +518,8 @@ async function initAR() {
 
     const btnMoveLeft = document.getElementById("btnMoveLeft");
     const btnMoveRight = document.getElementById("btnMoveRight");
-    const btnMoveForward = document.getElementById("btnMoveForward");
-    const btnMoveBackward = document.getElementById("btnMoveBackward");
+    const btnMoveUp = document.getElementById("btnMoveUp");
+    const btnMoveDown = document.getElementById("btnMoveDown");
 
     if(btnMoveLeft)
     btnMoveLeft.addEventListener("click",moveLeft);
@@ -507,11 +527,11 @@ async function initAR() {
     if(btnMoveRight)
     btnMoveRight.addEventListener("click",moveRight);
 
-    if(btnMoveForward)
-    btnMoveForward.addEventListener("click",moveForward);
+    if(btnMoveUp)
+    btnMoveUp.addEventListener("click", moveUp);
 
-    if(btnMoveBackward)
-    btnMoveBackward.addEventListener("click",moveBackward);
+    if(btnMoveDown)
+    btnMoveDown.addEventListener("click", moveDown);
 
     const nextBtn = document.getElementById("btnKeQuiz");
     if (nextBtn) {
