@@ -430,3 +430,13 @@ body.ar-mode {
 body.ar-locked-in [class*="mindar-ui"] {
   display: none !important;
 }
+
+/* Sembunyiin tombol "Enter VR / Enter AR / Fullscreen" bawaan A-Frame -
+   attribute vr-mode-ui="enabled: false" kadang gak cukup, jadi dipaksa
+   lewat CSS juga sesuai rekomendasi dokumentasi A-Frame sendiri. */
+.a-enter-vr,
+.a-enter-ar,
+.a-orientation-modal,
+[class^="a-enter-"] {
+  display: none !important;
+}
