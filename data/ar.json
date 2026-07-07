@@ -78,7 +78,7 @@
           },
           {
               "id":"mata",
-              "label":"mata",
+              "label":"Mata",
               "model":"assets/models/tiga-jenis-manusia-purba/pithecanthropus-kepala.glb",
               "view":{
                   "rotY":0,
@@ -92,8 +92,8 @@
           },
           {
             "id":"tangan",
-            "label":"tangan",
-            "model":"assets/models/tiga-jenis-manusia-purba/pithecanthropus-hotspot.glb",
+            "label":"Tangan",
+            "model":"assets/models/tiga-jenis-manusia-purba/pithecanthropus-kepala.glb",
             "view":{
                 "rotY":0,
                 "zoom":2,
@@ -101,7 +101,7 @@
                 "moveY":0
             },
         
-            "audio":"assets/audio/tiga-jenis-manusia-purba/pithecanthropus/mata.mp3",
+            "audio":"assets/audio/tiga-jenis-manusia-purba/pithecanthropus/tangan.mp3",
             "teks":"Perhatikan tangannya. Jari-jarinya kuat, ibu jarinya sudah bisa berlawanan dengan jari lain, mirip tangan kalian. Kemampuan ini memungkinkan ia menggenggam batu erat dan memukulkannya dengan tepat. Tangan inilah yang membentuk teknologi paling awal di Nusantara, yaitu kapak perimbas dan kapak genggam khas Kebudayaan Pacitan. Alat-alat itu memang masih kasar. Tidak ada tangkai, tidak diasah halus. Cukup untuk memotong daging, mengorek umbi, dan mengupas kulit hewan buruan. Sederhana, tetapi mengubah cara manusia bertahan hidup di padang rumput yang keras."
         }
         ]
