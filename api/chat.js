@@ -1,18 +1,44 @@
 import materiData from "../data/materi.json";
 
-const API_URL = "https://api.atomesus.com/v1/chat/completions";
+const API_URL = "https://gateway.dahono.com/v1/chat/completions";
 
 function cariMateri(id) {
   return materiData.materi.find((m) => m.id === id);
 }
 
-export default async function handler(req, res) {
-  console.log("===== CHAT =====");
+function buatPrompt(judul, konteks, pertanyaan) {
+  return `Kamu adalah HistoAI, asisten belajar sejarah SMA.
 
+ATURAN:
+1. Jawab HANYA berdasarkan materi berikut.
+2. Jika pertanyaan di luar materi, balas:
+"Mohon maaf, pertanyaan yang anda ajukan diluar konteks dari materi ini"
+
+Judul:
+${judul}
+
+Materi:
+${konteks}
+
+Pertanyaan:
+${pertanyaan}`;
+}
+
+export default async function handler(req, res) {
   try {
+    if (req.method !== "POST") {
+      return res.status(405).json({
+        error: "Method not allowed",
+      });
+    }
+
     const { materi_id, pertanyaan } = req.body;
 
-    console.log(req.body);
+    if (!pertanyaan) {
+      return res.status(400).json({
+        error: "Pertanyaan kosong",
+      });
+    }
 
     const materi = cariMateri(materi_id);
 
@@ -22,43 +48,33 @@ export default async function handler(req, res) {
       });
     }
 
-    const prompt = `
-Kamu adalah guru sejarah.
-
-Materi:
-${materi.ringkasan}
-
-Pertanyaan:
-${pertanyaan}
-`;
-
-    console.log("Kirim ke Atomesus...");
-
-    const ai = await fetch(API_URL, {
+    const response = await fetch(API_URL, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${process.env.ATOMESUS_API_KEY}`,
         "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.DAHONO_API_KEY}`,
       },
       body: JSON.stringify({
-        model: "cipher",
+        model: "dahono/gemini-3-flash",
         messages: [
           {
             role: "user",
-            content: prompt,
+            content: buatPrompt(
+              materi.judul,
+              materi.ringkasan,
+              pertanyaan
+            ),
           },
         ],
       }),
     });
 
-    console.log("STATUS AI:", ai.status);
-
-    const json = await ai.json();
+    const json = await response.json();
 
     console.log(json);
 
-    if (!ai.ok) {
-      return res.status(ai.status).json(json);
+    if (!response.ok) {
+      return res.status(response.status).json(json);
     }
 
     return res.json({
@@ -69,7 +85,6 @@ ${pertanyaan}
 
     return res.status(500).json({
       error: err.message,
-      stack: err.stack,
     });
   }
 }
