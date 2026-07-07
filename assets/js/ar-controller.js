@@ -262,21 +262,30 @@ function initDragRotate() {
  * Ganti model 3D (src) yang lagi ditampilin di atas target tertentu, sekalian
  * reset zoom/rotasi manualnya ke base scale bawaan model itu.
  */
-function updateModel(targetKey, modelSrc, scale) {
+/**
+ * Ganti model 3D (src) di target tertentu.
+ * resetZoomRotation=true: dipake pas target PERTAMA KALI kedeteksi - wajar
+ *   di-reset karena belum ada "preferensi siswa" sama sekali.
+ * resetZoomRotation=false (dipake pas pindah hotspot): base scale tetep di-update
+ *   (biar model dengan file .glb beda ukuran tetep konsisten), TAPI zoom & rotasi
+ *   yang udah diatur siswa dipertahanin apa adanya - gak di-reset walau model-nya
+ *   ganti file (kasus m1: tiap hotspot punya .glb sendiri-sendiri).
+ */
+function updateModel(targetKey, modelSrc, scale, resetZoomRotation) {
   if (!modelSrc) return;
   const sceneRoot = document.getElementById("arSceneRoot");
   const modelEl = sceneRoot.querySelector(`[data-target-key="${targetKey}"] a-gltf-model`);
   if (!modelEl) return;
 
   const currentSrc = modelEl.getAttribute("src");
-  const isSameModel = currentSrc === modelSrc;
+  if (currentSrc !== modelSrc) modelEl.setAttribute("src", modelSrc);
 
-  if (!isSameModel) {
-    modelEl.setAttribute("src", modelSrc);
-    setBaseScale(targetKey, scale); // model beneran ganti file -> wajar di-reset ke default barunya
+  if (resetZoomRotation) {
+    setBaseScale(targetKey, scale); // reset penuh: base scale + zoom=1 + rotasi=0 (buat first-open)
+  } else {
+    baseScaleVec = parseScale(scale); // update base scale doang
+    applyWrapperTransform(targetKey); // zoom & rotasi siswa tetep dipake, gak disentuh
   }
-  // kalau model-nya sama persis (cuma teks/audio yang ganti), zoom & rotasi
-  // yang lagi diatur siswa dibiarin apa adanya, gak di-reset.
 }
 
 /**
@@ -313,7 +322,7 @@ function openPanel(target, isFirstOpen) {
     .join("");
 
   if (isFirstOpen) {
-    updateModel(target.key, target.model, target.scale);
+    updateModel(target.key, target.model, target.scale, true);
     applyPresetView(target.defaultView); // biar model langsung gede & ngadep kamera pas baru discan
     desc.textContent = "Pilih salah satu bagian di atas untuk mendengar & membaca penjelasannya.";
     playIntroAudio(target.introAudio);
@@ -335,7 +344,7 @@ function selectHotspot(target, hotspot, btnEl) {
     btnEl.classList.add("is-visited-pill");
   }
 
-  updateModel(target.key, hotspot.model || target.model, hotspot.scale || target.scale);
+  updateModel(target.key, hotspot.model || target.model, hotspot.scale || target.scale, false);
   applyPresetView(hotspot.view); // 'fokus' kamera ke bagian ini (kalau ada preset-nya di ar.json) - opsional
   desc.textContent = hotspot.teks;
   playNarrationAudio(hotspot.audio, null);
