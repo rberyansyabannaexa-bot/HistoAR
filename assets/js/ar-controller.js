@@ -324,11 +324,30 @@ function openPanel(target, isFirstOpen) {
   if (isFirstOpen) {
     updateModel(target.key, target.model, target.scale, true);
     applyPresetView(target.defaultView); // biar model langsung gede & ngadep kamera pas baru discan
-    desc.textContent = "Pilih salah satu bagian di atas untuk mendengar & membaca penjelasannya.";
+    setDescText("Pilih salah satu bagian di atas untuk mendengar & membaca penjelasannya.");
     playIntroAudio(target.introAudio);
   } else {
-    desc.textContent = "Pilih salah satu bagian di atas untuk mendengar & membaca penjelasannya.";
+    setDescText("Pilih salah satu bagian di atas untuk mendengar & membaca penjelasannya.");
   }
+}
+
+/**
+ * Set teks deskripsi, reset ke kondisi collapsed (3 baris), dan cuma
+ * nampilin tombol "Baca selengkapnya" kalau teksnya emang kepotong.
+ */
+function setDescText(text) {
+  const desc = document.getElementById("arPanelDesc");
+  const toggle = document.getElementById("arDescToggle");
+  if (!desc) return;
+
+  desc.textContent = text;
+  desc.classList.remove("is-expanded");
+  if (toggle) toggle.textContent = "Baca selengkapnya ▾";
+
+  requestAnimationFrame(() => {
+    const isTruncated = desc.scrollHeight > desc.clientHeight + 2; // +2 toleransi rounding
+    if (toggle) toggle.hidden = !isTruncated;
+  });
 }
 
 function selectHotspot(target, hotspot, btnEl) {
@@ -346,7 +365,7 @@ function selectHotspot(target, hotspot, btnEl) {
 
   updateModel(target.key, hotspot.model || target.model, hotspot.scale || target.scale, false);
   applyPresetView(hotspot.view); // 'fokus' kamera ke bagian ini (kalau ada preset-nya di ar.json) - opsional
-  desc.textContent = hotspot.teks;
+  setDescText(hotspot.teks);
   playNarrationAudio(hotspot.audio, null);
 
   const key = `${target.key}:${hotspot.id}`;
@@ -427,6 +446,15 @@ async function initAR() {
     const closeBtn = document.getElementById("arPanelClose");
     if (closeBtn) closeBtn.addEventListener("click", closePanel);
 
+    const descToggle = document.getElementById("arDescToggle");
+    if (descToggle) {
+      descToggle.addEventListener("click", () => {
+        const desc = document.getElementById("arPanelDesc");
+        const expanded = desc.classList.toggle("is-expanded");
+        descToggle.textContent = expanded ? "Sembunyikan ▴" : "Baca selengkapnya ▾";
+      });
+    }
+
     const reopenBtn = document.getElementById("arReopenBtn");
     if (reopenBtn) {
       reopenBtn.addEventListener("click", () => {
@@ -460,7 +488,7 @@ function buildScene(config) {
     .join("");
 
   sceneRoot.innerHTML = `
-    <a-scene mindar-image="imageTargetSrc: ${config.targetMind}; autoStart: true;"
+    <a-scene mindar-image="imageTargetSrc: ${config.targetMind}; autoStart: true; filterMinCF: 0.0001; filterBeta: 100;"
       color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights"
       vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
