@@ -139,9 +139,10 @@ function updateGateButton() {
 
 const ZOOM_STEP = 0.2;
 const MIN_ZOOM = 0.3;
-const MAX_ZOOM = 8;
+const DEFAULT_MAX_ZOOM = 8;
 const ROTATE_SPEED = 0.4; // derajat per pixel drag
 
+let MAX_ZOOM = DEFAULT_MAX_ZOOM;
 let baseScaleVec = { x: 0.3, y: 0.3, z: 0.3 };
 let zoomFactor = 1;
 let rotY = 0;
@@ -501,6 +502,9 @@ async function initAR() {
       container.innerHTML = `<div class="ar-blocked"><p>Belum ada konfigurasi AR untuk materi ini.</p><a href="materi.html">Kembali ke daftar materi</a></div>`;
       return;
     }
+
+    MAX_ZOOM = typeof arConfig.maxZoom === "number" ? arConfig.maxZoom : DEFAULT_MAX_ZOOM;
+
 
     buildScene(arConfig);
     updateGateButton();
