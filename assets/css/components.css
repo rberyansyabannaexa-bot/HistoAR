@@ -440,3 +440,68 @@ body.ar-locked-in [class*="mindar-ui"] {
 [class^="a-enter-"] {
   display: none !important;
 }
+
+/* =========================================================
+   AR MOVE CONTROLS (KIRI)
+   ========================================================= */
+
+.ar-move-controls{
+  position:absolute;
+
+  top:calc(var(--space-4) + 48px);
+  left:var(--space-3);
+
+  z-index:22;
+
+  display:flex;
+  flex-direction:column;
+
+  gap:.55rem;
+}
+
+.ar-move-controls button{
+
+  width:44px;
+  height:44px;
+
+  border-radius:50%;
+
+  background:rgba(28,24,20,.80);
+
+  border:var(--border);
+
+  color:var(--bone);
+
+  font-size:1.05rem;
+
+  cursor:pointer;
+
+  transition:
+    border-color .2s,
+    transform .15s,
+    background .2s;
+}
+
+.ar-move-controls button:hover{
+
+  border-color:var(--rust-bright);
+
+  transform:scale(1.05);
+
+}
+
+.ar-move-controls button:active{
+
+  transform:scale(.95);
+
+}
+
+.ar-move-controls button:disabled{
+
+  opacity:.35;
+
+  cursor:not-allowed;
+
+  pointer-events:none;
+
+}
