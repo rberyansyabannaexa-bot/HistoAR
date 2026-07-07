@@ -48,7 +48,7 @@
 
   "m3-1": {
     "targetMind": "assets/ar/targets/tiga-jenis-manusia-purba/pithecanthropus.mind",
-    "maxZoom":20,
+    "maxZoom":30,
     "targets": [
       {
         "key": "pithecanthropus",
@@ -68,10 +68,8 @@
               "label":"Kepala",
               "model":"assets/models/tiga-jenis-manusia-purba/pithecanthropus-kepala.glb",
               "view":{
-                  "rotY":0,
-                  "zoom":2,
-                  "moveX":0,
-                  "moveY":0
+                  "rotY": -90,
+                  "zoom": 20
               },
           
               "audio":"assets/audio/tiga-jenis-manusia-purba/pithecanthropus/kepala.mp3",
@@ -82,10 +80,8 @@
               "label":"Mata",
               "model":"assets/models/tiga-jenis-manusia-purba/pithecanthropus-kepala.glb",
               "view":{
-                  "rotY":0,
-                  "zoom":2,
-                  "moveX":0,
-                  "moveY":0
+                  "rotY": -90,
+                  "zoom": 30
               },
           
               "audio":"assets/audio/tiga-jenis-manusia-purba/pithecanthropus/mata.mp3",
