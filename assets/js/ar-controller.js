@@ -200,14 +200,12 @@ function zoomOut() {
 }
 
 function resetView() {
-  if (!activeTarget) return;
-  zoomFactor = 1;
-  rotY = 0;
-  rotX = 0;
-  
-  moveX = 0;
-  moveZ = 0;
-  applyWrapperTransform(activeTarget.key);
+    if (!activeTarget) return;
+
+    moveX = 0;
+    moveZ = 0;
+
+    applyPresetView(activeTarget.defaultView);
 }
 
 function moveLeft(){
