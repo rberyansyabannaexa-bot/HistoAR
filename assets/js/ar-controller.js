@@ -267,6 +267,10 @@ function applyPresetView(view) {
   if (typeof view.zoom === "number") zoomFactor = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, view.zoom));
   if (typeof view.rotY === "number") rotY = view.rotY;
   if (typeof view.rotX === "number") rotX = view.rotX;
+  if (typeof view.moveX === "number")
+    moveX = view.moveX;
+  if (typeof view.moveZ === "number")
+    moveZ = view.moveZ;
   applyWrapperTransform(activeTarget.key);
 }
 
@@ -276,7 +280,14 @@ function applyPresetView(view) {
  * ke clipboard dalam format siap-tempel ke ar.json.
  */
 function copyCurrentView() {
-  const snippet = `"view": { "rotX": ${Math.round(rotX)}, "rotY": ${Math.round(rotY)}, "zoom": ${zoomFactor.toFixed(2)} }`;
+ const snippet =
+  `"view": {
+    "rotX": ${Math.round(rotX)},
+    "rotY": ${Math.round(rotY)},
+    "zoom": ${zoomFactor.toFixed(2)},
+    "moveX": ${moveX.toFixed(3)},
+    "moveZ": ${moveZ.toFixed(3)}
+  }`;
   navigator.clipboard?.writeText(snippet).catch(() => {});
   const toast = document.getElementById("arCopyToast");
   if (toast) {
