@@ -45,8 +45,34 @@
       ]
     },
     {
-      "id": "m3-1",
-      "urutan": 6,
+      "id": "materi-3",
+      "urutan": 3,
+      "kode": "M03",
+      "judul": "Meganthropus Paleojavanicus",
+      "ringkasan": "Mengenal manusia purba tertua yang fosilnya ditemukan di Sangiran beserta ciri fisik dan cara hidupnya.",
+      "layerColor": "#8B5E3C",
+      "konten": [
+        {
+      "judul": "Penemuan",
+      "isi": "Sekitar 1,5 hingga 2 juta tahun yang lalu, di wilayah yang kini dikenal sebagai Sangiran, hidup manusia purba yang disebut Meganthropus Paleojavanicus. Nama tersebut berasal dari kata mega (besar), anthropus (manusia), paleo (tua), dan javanicus (dari Jawa). Fosil berupa rahang bawah dan gigi geraham berukuran sangat besar ditemukan oleh Gustav Heinrich Ralph von Koenigswald pada tahun 1936–1941 di Sangiran, Jawa Tengah."
+        },
+        {
+          "judul": "Ciri Fisik",
+          "isi": "Meganthropus diperkirakan memiliki tubuh yang tegap, berotot, dan tinggi sekitar 1,75 meter, meskipun perkiraan ini masih bersifat spekulatif karena didasarkan pada ukuran rahang. Ciri lainnya adalah rahang yang sangat besar dan kuat, tidak memiliki dagu seperti manusia modern, tulang pipi yang tebal, tulang kening yang menonjol, serta postur tubuh yang agak membungkuk."
+        },
+        {
+          "judul": "Cara Hidup",
+          "isi": "Meganthropus hidup dengan memanfaatkan sumber daya alam yang tersedia. Makanan utamanya berupa tumbuh-tumbuhan berserat, umbi-umbian, dan buah-buahan liar. Rahang yang besar dan gigi yang kuat membantunya mengunyah makanan yang keras. Hingga kini belum ditemukan bukti yang meyakinkan bahwa Meganthropus telah membuat peralatan yang rumit, sehingga para ahli masih memperdebatkan tingkat perkembangan kebudayaannya."
+        },
+        {
+          "judul": "Fakta Menarik",
+          "isi": "Karena fosil yang ditemukan hanya berupa fragmen rahang dan gigi, banyak informasi mengenai Meganthropus masih didasarkan pada hasil interpretasi para ahli. Oleh sebab itu, status dan hubungan Meganthropus dengan manusia purba lainnya masih menjadi bahan penelitian hingga sekarang."
+        }
+      ]
+    },
+    {
+      "id": "m3-2",
+      "urutan": 4,
       "kode": "3.2 / PITHECANTHROPUS",
       "layerColor": "#7a6a52",
       "judul": "Pithecanthropus Erectus",
