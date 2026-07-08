@@ -93,7 +93,7 @@
             "model":"assets/models/tiga-jenis-manusia-purba/pithecanthropus-tangan.glb",
             "view":{
                 "rotY": 185,
-                "zoom": 12
+                "zoom": 10
             },
         
             "audio":"assets/audio/tiga-jenis-manusia-purba/pithecanthropus/tangan.mp3",
