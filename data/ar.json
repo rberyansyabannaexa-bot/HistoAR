@@ -47,6 +47,62 @@
   },
 
   "m3-1": {
+  "targetMind": "assets/ar/targets/tiga-jenis-manusia-purba/meganthropus.mind",
+  "maxZoom": 30,
+  "targets": [
+    {
+      "key": "meganthropus",
+      "label": "Meganthropus Paleojavanicus",
+      "targetIndex": 0,
+      "model": "assets/models/tiga-jenis-manusia-purba/meganthropus.glb",
+      "scale": "0.3 0.3 0.3",
+      "defaultView": {
+        "rotY": -131,
+        "zoom": 2.80
+      },
+
+      "introAudio": "assets/audio/tiga-jenis-manusia-purba/meganthropus/intro.mp3",
+
+      "hotspots": [
+        {
+          "id": "kepala",
+          "label": "Kepala",
+          "model": "assets/models/tiga-jenis-manusia-purba/meganthropus-kepala.glb",
+          "view": {
+            "rotY": -90,
+            "zoom": 20
+          },
+          "audio": "assets/audio/tiga-jenis-manusia-purba/meganthropus/kepala.mp3",
+          "teks": "Kalian sedang melihat kepala manusia purba paling tua yang jejaknya ditemukan di Indonesia. Ukuran otaknya masih relatif kecil dibanding kalian sekarang. Tulang keningnya tebal dan menonjol, dahinya sangat miring ke belakang, dan ia belum punya dagu seperti kalian. Meski begitu, otak sekecil ini sudah cukup untuk hidup berkelompok dan mengenali makanan yang aman di padang rumput Jawa purba. Fosil rahangnya digali oleh Gustav Heinrich Ralph von Koenigswald antara 1936 sampai 1941, di daerah Sangiran, Sragen, Jawa Tengah."
+        },
+        {
+          "id": "mata",
+          "label": "Mata",
+          "model": "assets/models/tiga-jenis-manusia-purba/meganthropus-kepala.glb",
+          "view": {
+            "rotY": -90,
+            "zoom": 30
+          },
+          "audio": "assets/audio/tiga-jenis-manusia-purba/meganthropus/mata.mp3",
+          "teks": "Mata Meganthropus terletak di balik tulang alis yang sangat tebal. Fungsinya bukan cuma untuk melihat. Tulang alis setebal ini melindungi mata dari terik matahari terbuka dan dari benturan saat mencari makan di antara semak-semak yang rimbun. Pandangannya cukup tajam untuk mengintai bahaya dari kejauhan. Karena tubuhnya besar dan gerakannya tidak selincah manusia purba yang datang setelahnya, ia mengandalkan mata dan pendengaran untuk mendeteksi hewan pemangsa lebih dulu."
+        },
+        {
+          "id": "tangan",
+          "label": "Tangan",
+          "model": "assets/models/tiga-jenis-manusia-purba/meganthropus-tangan.glb",
+          "view": {
+            "rotY": 185,
+            "zoom": 10
+          },
+          "audio": "assets/audio/tiga-jenis-manusia-purba/meganthropus/tangan.mp3",
+          "teks": "Tangan Meganthropus kuat dan kekar. Rahangnya yang besar memberi petunjuk bahwa makanannya keras: tumbuh-tumbuhan berserat, umbi-umbian, dan buah liar. Tangan ini lebih sering dipakai untuk merenggut, mencabut, dan meremas makanan daripada membuat alat rumit. Karena hanya fragmen rahang dan gigi yang sampai ke kita, para ahli masih berdebat seberapa jauh Meganthropus membuat peralatan. Yang jelas, ia bertahan hidup di lingkungan terbuka Jawa purba dengan bergantung penuh pada apa yang alam sediakan."
+        }
+      ]
+    }
+  ]
+},
+
+  "m3-2": {
     "targetMind": "assets/ar/targets/tiga-jenis-manusia-purba/pithecanthropus.mind",
     "maxZoom":30,
     "targets": [
