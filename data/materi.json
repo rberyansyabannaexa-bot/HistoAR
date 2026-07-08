@@ -3,7 +3,7 @@
     {
       "id": "m1",
       "urutan": 1,
-      "kode": "01 / GEOLOGI",
+      "kode": "01 / PERIODISASI",
       "layerColor": "#8a7256",
       "judul": "Periodisasi Geologi: Bumi Sebelum Manusia",
       "ringkasan": "Bumi jauh lebih tua dari manusia. Empat zaman geologi menjelaskan bagaimana bumi bersiap menjadi rumah bagi kehidupan.",
@@ -45,9 +45,9 @@
       ]
     },
     {
-      "id": "materi-3",
+      "id": "m3-1",
       "urutan": 3,
-      "kode": "M03",
+      "kode": "3.1",
       "judul": "Meganthropus Paleojavanicus",
       "ringkasan": "Mengenal manusia purba tertua yang fosilnya ditemukan di Sangiran beserta ciri fisik dan cara hidupnya.",
       "layerColor": "#8B5E3C",
