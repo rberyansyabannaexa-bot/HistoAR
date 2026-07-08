@@ -90,7 +90,7 @@
           {
             "id":"tangan",
             "label":"Tangan",
-            "model":"assets/models/tiga-jenis-manusia-purba/pithecanthropus-kepala.glb",
+            "model":"assets/models/tiga-jenis-manusia-purba/pithecanthropus-tangan.glb",
             "view":{
                 "rotY":0,
                 "zoom":2,
