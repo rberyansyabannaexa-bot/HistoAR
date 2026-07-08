@@ -31,11 +31,69 @@
     ],
 
     "m3-1": [
-      { "id": "m3-1q1", "pertanyaan": "Fosil Pithecanthropus erectus pertama kali ditemukan oleh...", "opsi": ["Gustav Heinrich Ralph von Koenigswald", "Eugène Dubois", "B.D. van Rietschoten", "Teuku Jacob"], "jawaban": 1 },
-      { "id": "m3-1q2", "pertanyaan": "Pithecanthropus erectus ditemukan pada tahun 1891 di...", "opsi": ["Sangiran, Jawa Tengah", "Wajak, Tulungagung", "Trinil, tepi Bengawan Solo", "Mojokerto, Jawa Timur"], "jawaban": 2 },
-      { "id": "m3-1q3", "pertanyaan": "Arti nama 'Pithecanthropus erectus' adalah...", "opsi": ["Manusia besar dari Jawa", "Manusia kera yang berjalan tegak", "Manusia yang bijaksana", "Manusia gua purba"], "jawaban": 1 },
-      { "id": "m3-1q4", "pertanyaan": "Volume otak Pithecanthropus erectus diperkirakan sekitar...", "opsi": ["±500 cc", "±900 cc", "±1.300 cc", "±1.450 cc"], "jawaban": 1 },
-      { "id": "m3-1q5", "pertanyaan": "Kemampuan tangan Pithecanthropus erectus memungkinkannya membuat alat khas dari kebudayaan...", "opsi": ["Ngandong", "Dongson", "Pacitan", "Bacson-Hoabinh"], "jawaban": 2 }
+  {
+    "id": "m3-1q1",
+    "pertanyaan": "Fosil Meganthropus Paleojavanicus ditemukan oleh...",
+    "opsi": [
+      "Eugène Dubois",
+      "Gustav Heinrich Ralph von Koenigswald",
+      "Teuku Jacob",
+      "B.D. van Rietschoten"
+    ],
+    "jawaban": 1
+  },
+  {
+    "id": "m3-1q2",
+    "pertanyaan": "Fosil Meganthropus Paleojavanicus ditemukan di daerah...",
+    "opsi": [
+      "Trinil, Jawa Timur",
+      "Ngandong, Jawa Tengah",
+      "Sangiran, Sragen, Jawa Tengah",
+      "Wajak, Tulungagung"
+    ],
+    "jawaban": 2
+  },
+  {
+    "id": "m3-1q3",
+    "pertanyaan": "Salah satu ciri fisik Meganthropus Paleojavanicus adalah...",
+    "opsi": [
+      "Memiliki dagu seperti manusia modern",
+      "Rahang sangat besar dan menonjol",
+      "Tubuh kecil dan ramping",
+      "Dahi tegak seperti Homo sapiens"
+    ],
+    "jawaban": 1
+  },
+  {
+    "id": "m3-1q4",
+    "pertanyaan": "Makanan utama Meganthropus Paleojavanicus diperkirakan berupa...",
+    "opsi": [
+      "Ikan dan kerang",
+      "Daging hasil berburu",
+      "Tumbuh-tumbuhan berserat, umbi-umbian, dan buah liar",
+      "Padi dan gandum"
+    ],
+    "jawaban": 2
+  },
+  {
+    "id": "m3-1q5",
+    "pertanyaan": "Mengapa para ahli masih memperdebatkan kemampuan Meganthropus dalam membuat alat?",
+    "opsi": [
+      "Karena semua alat batunya telah rusak",
+      "Karena hanya ditemukan fragmen rahang dan gigi",
+      "Karena fosilnya ditemukan di luar Indonesia",
+      "Karena belum diketahui usia fosilnya"
+    ],
+    "jawaban": 1
+  }
+].
+
+    "m3-2": [
+      { "id": "m3-2q1", "pertanyaan": "Fosil Pithecanthropus erectus pertama kali ditemukan oleh...", "opsi": ["Gustav Heinrich Ralph von Koenigswald", "Eugène Dubois", "B.D. van Rietschoten", "Teuku Jacob"], "jawaban": 1 },
+      { "id": "m3-2q2", "pertanyaan": "Pithecanthropus erectus ditemukan pada tahun 1891 di...", "opsi": ["Sangiran, Jawa Tengah", "Wajak, Tulungagung", "Trinil, tepi Bengawan Solo", "Mojokerto, Jawa Timur"], "jawaban": 2 },
+      { "id": "m3-2q3", "pertanyaan": "Arti nama 'Pithecanthropus erectus' adalah...", "opsi": ["Manusia besar dari Jawa", "Manusia kera yang berjalan tegak", "Manusia yang bijaksana", "Manusia gua purba"], "jawaban": 1 },
+      { "id": "m3-2q4", "pertanyaan": "Volume otak Pithecanthropus erectus diperkirakan sekitar...", "opsi": ["±500 cc", "±900 cc", "±1.300 cc", "±1.450 cc"], "jawaban": 1 },
+      { "id": "m3-2q5", "pertanyaan": "Kemampuan tangan Pithecanthropus erectus memungkinkannya membuat alat khas dari kebudayaan...", "opsi": ["Ngandong", "Dongson", "Pacitan", "Bacson-Hoabinh"], "jawaban": 2 }
     ]
   }
 }
