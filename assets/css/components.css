@@ -16,9 +16,9 @@
   background:
     linear-gradient(180deg,
       transparent 0%, transparent 55%,
-      rgba(140, 107, 79, 0.18) 55%, rgba(140, 107, 79, 0.18) 68%,
-      rgba(107, 122, 94, 0.16) 68%, rgba(107, 122, 94, 0.16) 80%,
-      rgba(181, 80, 46, 0.14) 80%, rgba(181, 80, 46, 0.14) 100%);
+      rgba(56, 189, 248, 0.14) 55%, rgba(56, 189, 248, 0.14) 68%,
+      rgba(52, 211, 153, 0.10) 68%, rgba(52, 211, 153, 0.10) 80%,
+      rgba(37, 99, 235, 0.16) 80%, rgba(37, 99, 235, 0.16) 100%);
 }
 .hero h1 { max-width: 14ch; }
 .hero__lede { max-width: 46ch; font-size: 1.1rem; }
@@ -104,9 +104,9 @@
   transition: border-color 0.15s ease, background 0.15s ease;
 }
 .quiz-option:hover { border-color: var(--rust-bright); }
-.quiz-option.selected { border-color: var(--rust); background: rgba(181, 80, 46, 0.14); }
-.quiz-option.correct { border-color: var(--moss); background: rgba(107, 122, 94, 0.2); }
-.quiz-option.incorrect { border-color: var(--rust); background: rgba(181, 80, 46, 0.22); }
+.quiz-option.selected { border-color: var(--rust); background: rgba(37, 99, 235, 0.16); }
+.quiz-option.correct { border-color: var(--moss); background: rgba(52, 211, 153, 0.16); }
+.quiz-option.incorrect { border-color: var(--danger); background: rgba(239, 68, 68, 0.16); }
 .quiz-option:disabled { cursor: default; }
 
 .quiz-nav { display: flex; justify-content: flex-end; }
@@ -326,7 +326,7 @@ body.ar-mode {
   text-decoration: none;
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  background: rgba(28, 24, 20, 0.6);
+  background: rgba(10, 26, 51, 0.6);
   padding: 0.4em 0.8em;
   border-radius: var(--radius);
   border: var(--border);
@@ -364,7 +364,7 @@ body.ar-mode {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(28, 24, 20, 0.8);
+  background: rgba(10, 26, 51, 0.8);
   border: var(--border);
   color: var(--bone);
   font-size: 1.1rem;
@@ -379,7 +379,7 @@ body.ar-mode {
   transform: translateX(-50%);
   z-index: 40;
   background: var(--moss);
-  color: #0e1a10;
+  color: #052e21;
   font-family: var(--font-mono);
   font-size: 0.75rem;
   padding: 0.5em 1em;
@@ -394,7 +394,7 @@ body.ar-mode {
   left: 50%;
   transform: translateX(-50%);
   z-index: 15;
-  background: rgba(28, 24, 20, 0.75);
+  background: rgba(10, 26, 51, 0.75);
   border: var(--border);
   border-radius: var(--radius);
   padding: 0.6em 1.2em;
@@ -420,7 +420,7 @@ body.ar-mode {
   width: min(92vw, 480px);
   max-height: var(--ar-panel-height); /* diperkecil dari 70vh biar model 3D di atasnya tetep keliatan */
   overflow-y: auto;
-  background: rgba(28, 24, 20, 0.94);
+  background: rgba(10, 26, 51, 0.94);
   border: var(--border);
   border-radius: var(--radius);
   padding: var(--space-3);
