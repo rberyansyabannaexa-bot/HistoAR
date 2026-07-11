@@ -1,3 +1,31 @@
+/**
+ * Escape HTML lalu ubah markdown ringan (bold/italic/newline) jadi tag aman.
+ * Dipakai supaya balasan bot yang mengandung **tebal** atau *miring*
+ * tidak muncul mentah dengan tanda bintang di chat bubble.
+ */
+function renderMarkdownLite(text) {
+  const escapeHtml = (str) =>
+    str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+
+  let safe = escapeHtml(text);
+
+  // Bold: **teks** atau __teks__
+  safe = safe.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+  safe = safe.replace(/__([^_]+)__/g, "<strong>$1</strong>");
+
+  // Italic: *teks* atau _teks_ (dijalankan setelah bold biar gak bentrok)
+  safe = safe.replace(/\*([^*]+)\*/g, "<em>$1</em>");
+  safe = safe.replace(/_([^_]+)_/g, "<em>$1</em>");
+
+  // Baris baru
+  safe = safe.replace(/\n/g, "<br>");
+
+  return safe;
+}
+
 class Chatbot {
   constructor(elements, context, onFirstInteraction) {
     this.el = elements;
@@ -12,6 +40,18 @@ class Chatbot {
         this.handleSend();
       }
     });
+
+    // Chip saran pertanyaan cepat (opsional, hanya aktif kalau ada di DOM)
+    const panel = this.el.input.closest(".chat-panel");
+    this.suggestionsEl = panel ? panel.querySelector(".chat-suggestions") : null;
+    if (this.suggestionsEl) {
+      this.suggestionsEl.querySelectorAll(".chat-suggestion").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          this.el.input.value = btn.textContent.trim();
+          this.handleSend();
+        });
+      });
+    }
   }
 
   init() {
@@ -28,7 +68,7 @@ class Chatbot {
   addMessage(role, text) {
     const bubble = document.createElement("div");
     bubble.className = `chat-msg ${role}`;
-    bubble.textContent = text;
+    bubble.innerHTML = renderMarkdownLite(text);
 
     this.el.log.appendChild(bubble);
     this.el.log.scrollTop = this.el.log.scrollHeight;
@@ -46,6 +86,7 @@ class Chatbot {
     if (!this.hasInteracted) {
       this.hasInteracted = true;
       this.onFirstInteraction();
+      if (this.suggestionsEl) this.suggestionsEl.hidden = true;
     }
 
     this.el.sendBtn.disabled = true;
@@ -68,17 +109,16 @@ class Chatbot {
       const json = await res.json();
 
       if (!res.ok) {
-        bubble.textContent =
-          json.error?.message ||
-          json.error ||
-          "Terjadi kesalahan.";
+        bubble.innerHTML = renderMarkdownLite(
+          json.error?.message || json.error || "Terjadi kesalahan."
+        );
         return;
       }
 
-      bubble.textContent = json.reply;
+      bubble.innerHTML = renderMarkdownLite(json.reply);
     } catch (err) {
       console.error(err);
-      bubble.textContent = "Tidak dapat menghubungi server.";
+      bubble.innerHTML = renderMarkdownLite("Tidak dapat menghubungi server.");
     } finally {
       this.el.sendBtn.disabled = false;
       this.el.input.disabled = false;
