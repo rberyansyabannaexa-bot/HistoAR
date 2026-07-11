@@ -1,19 +1,20 @@
 /* =========================================================
    HISTOAR — Design Tokens
-   Konsep: stratigrafi tanah — lapisan warna gelap ke terang,
-   aksen oksida besi (rust ochre) dan lumut (moss).
+   Konsep: HistoAI blue — navy gelap dengan aksen biru/cyan,
+   senada dengan tampilan chatbot HistoAI.
    ========================================================= */
 
 :root {
   /* Warna */
-  --basalt: #1c1814;
-  --basalt-soft: #262019;
-  --bone: #ede6d6;
-  --bone-dim: #c9c0ac;
-  --rust: #b5502e;
-  --rust-bright: #d46a44;
-  --moss: #6b7a5e;
-  --clay: #8c6b4f;
+  --basalt: #0a1a33;
+  --basalt-soft: #10233f;
+  --bone: #eaf2ff;
+  --bone-dim: #93a8c9;
+  --rust: #2563eb;
+  --rust-bright: #38bdf8;
+  --moss: #34d399;
+  --clay: #64748b;
+  --danger: #ef4444;
 
   /* Tipografi */
   --font-display: "Fraunces", Georgia, serif;
@@ -29,7 +30,7 @@
   --space-6: 6rem;
 
   --radius: 3px;
-  --border: 1px solid rgba(237, 230, 214, 0.14);
+  --border: 1px solid rgba(148, 197, 255, 0.16);
 }
 
 * {
@@ -155,7 +156,7 @@ a.btn[disabled] { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
   width: 8px;
   height: 100%;
   border-radius: 2px;
-  background: rgba(237, 230, 214, 0.12);
+  background: rgba(148, 197, 255, 0.12);
   transition: background 0.3s ease;
   position: relative;
 }
@@ -176,7 +177,7 @@ a.btn[disabled] { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(28, 24, 20, 0.92);
+  background: rgba(10, 26, 51, 0.92);
   backdrop-filter: blur(6px);
   border-bottom: var(--border);
 }
